@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>فودی | سفارش آنلاین غذا - Fooday</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta name="author" content="Roman Kirichik">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="css/style-responsive.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/vertical-rhythm.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/fontiran.css">
+
+</head>
+
+<body class="appear-animate">
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- End Page Loader -->
+
+    <!-- Page Wrap -->
+    <div class="page" id="top">
+
+        <!-- Home Section -->
+        <section class="home-section bg-dark bg-dark-alfa-30" data-background="images/banner.jpg" id="home">
+            <div class="js-height-full container">
+
+                <!-- Hero Content -->
+                <div class="home-content">
+                   <div class="row">
+                    <div class="search-wraps advance-search">
+                        <ul class="search-menu">
+                            <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="byname" data-tab="tab-byname"><i></i></a></li></div>
+                            <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="bystreet" data-tab="tab-bystreet"><i></i></a></li></div>
+                            <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="bycuisine" data-tab="tab-bycuisine"><i></i></a></li></div>
+                            <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="byfood" data-tab="tab-byfood"><i></i></a></li></div>
+                        </ul>
+
+
+                        <!--end row-->
+                        <h1 class="home-search-text">رستوران نزدیک به خود را پیدا کنید</h1>
+
+                        <p class="home-search-subtext">سفارش آنلاین غذا از رستوران های نزدیک به خود</p>
+
+                        <form method="GET" class="tab-byaddress forms-search" id="forms-search" action="/kmrs/searcharea">
+
+                            <div class="search-input-wraps rounded30">
+
+                                <div class="row">
+
+                                    <div class="col-sm-11 col-xs-10">
+                                        <input placeholder="Street Address,City,State" required="required" type="text" value="مثل: سعادت آباد" name="s" id="s" />
+                                    </div>
+
+                                    <div class="col-sm-1 col-xs-2 relative">
+                                        <button type="submit"><i class="fa fa-fw"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--search-input-wrap-->
+                        </form>
+
+
+                      </div>
+                </div>
+                <!-- End Hero Content -->
+
+                <!-- Scroll Down -->
+                <div class="local-scroll">
+                    <a href="#about" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i></a>
+                </div>
+                <!-- End Scroll Down -->
+
+            </div>
+        </section>
+        <!-- End Home Section -->
+
+        <!-- Navigation panel -->
+        <nav class="main-nav dark transparent stick-fixed">
+            <div class="full-wrapper relative clearfix">
+                <!-- Logo ( * your text or image into link tag *) -->
+                <div class="nav-logo-wrap local-scroll">
+                    <a href="#top" class="logo">
+                        <img src="images/logo-white.png" alt="" />
+                    </a>
+                </div>
+                <div class="mobile-nav">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <!-- Main Menu -->
+                <div class="inner-nav desktop-nav">
+                    <ul class="clearlist scroll-nav local-scroll">
+                        <li class="active"><a href="#home">خانه</a></li>
+                        <li><a href="#about">درباره ما</a></li>
+                        <li><a href="#menu">ثبت رستوران</a></li>
+                        <li><a href="#location">سوالات متداول</a></li>
+                        <li><a href="#location">تماس با ما</a></li>
+
+                        <!-- Button -->
+                        <li>
+                            <a href="/blog" target="_blank"><span class="btn btn-mod btn-circle btn-w">وبلاگ</span></a>
+                        </li>
+                        <!-- End Button -->
+
+                    </ul>
+
+
+
+                </div>
+
+                <div class="span-4 left-pane">
+                <nav class="menu white-mode" ng-class="{'white-mode': !menuFixed}">
+
+                    <span class="not-link support">
+                        <a href="/contactus">
+                            <i class="fa fa-lg fa-phone-square"></i>
+                           ۸۶۰۳۶۹۲۴ - ۰۲۱
+
+                        </a>
+                    </span>
+                    <span class="not-link">
+                        <i class="fa fa-user"></i><a href="/user/login">ورود</a>
+                    </span>
+                        <i class="fa fa-dot-circle-o"></i><a href="/user/signup">ثبت نام</a>
+                </nav>
+            </div>
+            </div>
+        </nav>
+        <!-- End Navigation panel -->
+
+        <!-- Process Section -->
+        <section class="page-section padding-sm">
+            <div class="container relative">
+
+                <!-- Features Grid -->
+                <div class="row alt-features-grid">
+
+                    <!-- Text Item -->
+                    <div class="col-sm-3">
+                        <div class="alt-features-item align-center">
+                            <div class="alt-features-descr align-right">
+                                <h4 class="bottommargin-sm font-alt">سفـارش غذا با فودِی  ؛ چطوری ؟</h4>
+
+ما تمام تلاشمونو برای سفارش بهتر و راحت تر غذا به کار گرفتیم. همین امروز غذای دلخواهت رو انتخاب کن و در کمترین زمان ممکن تحویل بگیر.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Text Item -->
+
+                    <!-- Features Item -->
+                    <div class="col-sm-3">
+                        <div class="alt-features-item align-center">
+                            <div class="alt-features-icon">
+                                <span class="icon-chat"></span>
+                            </div>
+                            <h3 class="alt-features-title font-alt">۱. انتخاب غذا و ثبت سفارش</h3>
+                        </div>
+                    </div>
+                    <!-- End Features Item -->
+
+                    <!-- Features Item -->
+                    <div class="col-sm-3">
+                        <div class="alt-features-item align-center">
+                            <div class="alt-features-icon">
+                                <span class="icon-browser"></span>
+                            </div>
+                            <h3 class="alt-features-title font-alt">۲. انتخاب روش پرداخت</h3>
+                        </div>
+                    </div>
+                    <!-- End Features Item -->
+
+                    <!-- Features Item -->
+                    <div class="col-sm-3">
+                        <div class="alt-features-item align-center">
+                            <div class="alt-features-icon">
+                                <span class="icon-heart"></span>
+                            </div>
+                            <h3 class="alt-features-title font-alt">۳. تحویل</h3>
+                        </div>
+                    </div>
+                    <!-- End Features Item -->
+
+                </div>
+                <!-- End Features Grid -->
+
+            </div>
+        </section>
+        <!-- End Process Section -->
+
+        <div class="white_bg">
+            <div class="container margin_60">
+
+                <div class="main_title">
+                    <h2 class="nomargin_top">انتخاب از بین محبوب ترین ها</h2>
+                    <p>
+                        از بین محبوب ترین  رستوران ها، غذای مورد علاقه خود را پیدا کنید
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="detail_page.html" class="strip_list">
+                            <div class="ribbon_1">Popular</div>
+                            <div class="desc">
+                                <div class="thumb_strip">
+                                    <img src="http://www.ansonika.com/quickfood/img/thumb_restaurant.jpg" alt="">
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw"></i></i>
+                                </div>
+                                <h3>قرمه سبزی</h3>
+                                <div class="type">
+                                    ایرانی / سنتی
+                                </div>
+                                <div class="location">
+                                    بلوار هاشمیه٬هاشمیه ۲۷ <span class="opening">شروع کار از ساعت ۷:۰۰</span>
+                                </div>
+                                <ul>
+                                    <li>آماده سفارش<i class="fa fa-fw ok"></i></li>
+                                    <li>ارسال غذا<i class="fa fa-fw ok"></i></li>
+                                </ul>
+                            </div>
+                            <!-- End desc-->
+                        </a>
+                        <!-- End strip_list-->
+                        <a href="detail_page.html" class="strip_list">
+                            <div class="ribbon_1">Popular</div>
+                            <div class="desc">
+                                <div class="thumb_strip">
+                                    <img src="http://www.ansonika.com/quickfood/img/thumb_restaurant_2.jpg" alt="">
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw"></i></i>
+                                </div>
+                                <h3>قرمه سبزی</h3>
+                                <div class="type">
+                                    ایرانی / سنتی
+                                </div>
+                                <div class="location">
+                                    بلوار هاشمیه٬هاشمیه ۲۷ <span class="opening">شروع کار از ساعت ۷:۰۰</span>
+                                </div>
+                                <ul>
+                                    <li>آماده سفارش<i class="fa fa-fw ok"></i></li>
+                                    <li>ارسال غذا<i class="fa fa-fw ok"></i></li>
+                                </ul>
+                            </div>
+                            <!-- End desc-->
+                        </a>
+                        <!-- End strip_list-->
+
+                    </div>
+                    <!-- End col-md-6-->
+                    <div class="col-md-6">
+                        <a href="detail_page.html" class="strip_list">
+                            <div class="ribbon_1">Popular</div>
+                            <div class="desc">
+                                <div class="thumb_strip">
+                                    <img src="http://www.ansonika.com/quickfood/img/thumb_restaurant_4.jpg" alt="">
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw"></i></i>
+                                </div>
+                                <h3>قرمه سبزی</h3>
+                                <div class="type">
+                                    ایرانی / سنتی
+                                </div>
+                                <div class="location">
+                                    بلوار هاشمیه٬هاشمیه ۲۷ <span class="opening">شروع کار از ساعت ۷:۰۰</span>
+                                </div>
+                                <ul>
+                                    <li>آماده سفارش<i class="fa fa-fw ok"></i></li>
+                                    <li>ارسال غذا<i class="fa fa-fw ok"></i></li>
+                                </ul>
+                            </div>
+                            <!-- End desc-->
+                        </a>
+                        <!-- End strip_list-->
+                        <a href="detail_page.html" class="strip_list">
+                            <div class="ribbon_1">Popular</div>
+                            <div class="desc">
+                                <div class="thumb_strip">
+                                    <img src="http://www.ansonika.com/quickfood/img/thumb_restaurant_5.jpg" alt="">
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw voted"></i></i><i class="fa fa-fw"></i></i>
+                                </div>
+                                <h3>قرمه سبزی</h3>
+                                <div class="type">
+                                    ایرانی / سنتی
+                                </div>
+                                <div class="location">
+                                    بلوار هاشمیه٬هاشمیه ۲۷ <span class="opening">شروع کار از ساعت ۷:۰۰</span>
+                                </div>
+                                <ul>
+                                    <li>آماده سفارش<i class="fa fa-fw ok"></i></li>
+                                    <li>ارسال غذا<i class="fa fa-fw ok"></i></li>
+                                </ul>
+                            </div>
+                            <!-- End desc-->
+                        </a>
+                        <!-- End strip_list-->
+
+                    </div>
+                </div>
+                <!-- End row -->
+
+            </div>
+            <!-- End container -->
+        </div>
+        <!-- End white_bg -->
+
+        <!-- Call Action Section -->
+        <section class="page-section bottommargin-sm bg-dark bg-dark-alfa-50" data-background="images/full-width-images/section-bg-2.jpg">
+            <div class="container relative">
+
+                <div class="align-center">
+                    <h3 class="banner-heading font-alt mb-40">از غذاها و کیفیت سرویس سفارش آنلاین لذت ببرید</h3>
+                    <div class="local-scroll">
+                        <a href="#reservations" class="btn btn-mod btn-w btn-medium btn-round">مشاهده تمام رستوران ها</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Call Action Section -->
+
+
+
+        <section>
+            <div id="cbx-special" class="cbx-special">
+                <div class="cbx-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="cbx-heading">
+                                    <h2>
+                                                        <span class="watermark">ویژه</span>
+                                                        <span class="heading">غذاهای</span>
+                                                    </h2>
+                                </div>
+                            </div>
+                            <!--//.col-->
+                        </div>
+                        <!--//.main row-->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="special-area">
+                                    <div class="special-single special-one">
+                                        <figure>
+                                            <a href="#"><img src="/rtl/images/food/t1.jpg" alt="special food"></a>
+                                            <figcaption>
+                                                <div class="speacial-info">
+                                                    <h4 class="subtitle">غذای ایتالیایی</h4>
+                                                    <h3 class="title"><a href="#">دوبل برگر ایتالیایی</a></h3>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="special-single special-two ">
+                                        <figure>
+                                            <a href="#"><img src="/rtl/images/food/t2.jpg" alt="special food"></a>
+                                            <figcaption>
+                                                <div class="speacial-info">
+                                                  <h4 class="subtitle">غذای ایتالیایی</h4>
+                                                  <h3 class="title"><a href="#">دوبل برگر ایتالیایی</a></h3>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="special-single special-three">
+                                        <figure>
+                                            <a href="#"><img src="/rtl/images/food/t3.jpg" alt="special food"></a>
+                                            <figcaption>
+                                                <div class="speacial-info">
+                                                  <h4 class="subtitle">غذای ایتالیایی</h4>
+                                                  <h3 class="title"><a href="#">دوبل برگر ایتالیایی</a></h3>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="special-single special-four">
+                                        <figure>
+                                            <a href="#"><img src="/rtl/images/food/t4.jpg" alt="special food"></a>
+                                            <figcaption>
+                                                <div class="speacial-info">
+                                                  <h4 class="subtitle">غذای ایتالیایی</h4>
+                                                  <h3 class="title"><a href="#">دوبل برگر ایتالیایی</a></h3>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="special-single special-five">
+                                        <figure>
+                                            <a href="#"><img src="/rtl/images/food/t5.jpg" alt="special food"></a>
+                                            <figcaption>
+                                                <div class="speacial-info">
+                                                  <h4 class="subtitle">غذای ایتالیایی</h4>
+                                                  <h3 class="title"><a href="#">دوبل برگر ایتالیایی</a></h3>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--//.col-->
+                        </div>
+                        <!--//.main row-->
+                    </div>
+                    <!--//.container-->
+                </div>
+                <!--//.cbx-inner-->
+            </div>
+            <!--//.cbx-header-->
+        </section>
+
+        <div class="testimonial-section container-fluid no-padding ">
+            <div class="section-padding"></div>
+            <!-- Container -->
+            <div class="container">
+              <!-- Main Carousel -->
+
+               <div id="main-carousel1" class="carousel slide carousel-fade" data-ride="carousel">
+                   <div role="listbox" class="carousel-inner">
+                       <div class="item active">
+                           <div class="testimonial-content">
+                               <img src="http://premiumlayers.net/demo/html/pizzakitchen/images/testi-author.jpg" alt="testi-author" width="160" height="170">
+                               <div class="testi-box">
+                                   <p>
+لورم ایپسوم یا طرح‌نما عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید،</p>
+                                   <h3>علی خرامان</h3>
+                                   <h5>طراح رابط کاربری</h5>
+                                   <span><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+                               </div>
+                           </div>
+                       </div>
+
+                       <a class="left carousel-control" href="#main-carousel1" role="button" data-slide="prev">
+                           <i class="fa fa-angle-left" aria-hidden="true"></i>
+                       </a>
+                       <a class="right carousel-control" href="#main-carousel1" role="button" data-slide="next">
+                           <i class="fa fa-angle-right" aria-hidden="true"></i>
+                       </a>
+
+                   </div>
+               </div>
+               <!-- Main Carousel /-  -->
+            </div>
+            <!-- Container /- -->
+            <div class="section-padding"></div>
+        </div>
+
+        <section class="page-section bg-dark bg-dark-alfa-50" data-background="images/dish.jpg">
+            <div class="container relative">
+
+                    <div class="col-sm-6">
+
+                        <div class="mt-140 mt-lg-80 mb-140 mb-lg-80">
+                            <div class="banner-content">
+                                <h3 class="banner-heading font-alt">به دنبال دسترسی راحت تری هستید؟</h3>
+                                <div class="banner-decription">
+لورم ایپسوم یا طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید                                </div>
+                                <div class="local-scroll">
+                                    <a href="#contact" class="btn btn-mod btn-w btn-medium btn-round">شروع گفتگو</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6 banner-image wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                        <img src="images/iphone.png" alt="">
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="small-section bg-gray-lighter">
+            <div class="container relative">
+
+                <form class="form align-center" id="mailchimp" novalidate="true">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+
+                            <div class="newsletter-label font-alt">
+                                با ما از طریق خبرنامه در ارتباط باشید و از تخفیف های روزانه مطلع شوید
+                            </div>
+
+                            <div class="mb-20">
+                                <input placeholder="ایمیل خود را وارد کنید" class="newsletter-field form-control input-md round mb-xs-10" pattern=".{5,100}" required="" name="EMAIL" type="email">
+
+                                <button type="submit" class="btn btn-mod btn-medium btn-round mb-xs-10">
+                                    اشتراک
+                                </button>
+                            </div>
+
+                            <div class="form-tip">
+                                <i class="fa fa-info-circle"></i> مطمئن باشید ما برای شما اسپم ارسال نمیکنیم
+                            </div>
+
+                            <div id="subscribe-result"></div>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+
+
+
+
+
+        <!-- Google Map -->
+        <section class="page-section pt-0 pb-0" id="location">
+            <div class="google-map">
+                <div data-address="ایران٬تهران٬تهران" id="map-canvas"></div>
+            </div>
+        </section>
+        <!-- End Google Map -->
+
+        <!-- Foter -->
+        <footer class="small-section bg-gray-lighter footer pb-60">
+            <div class="container">
+
+                <div class="row mb-40 align-right">
+
+                    <div class="col-sm-12">
+                        <div class="row">
+
+                            <!-- Phone -->
+                            <div class="col-sm-6 col-lg-3 pt-20 pb-20 pb-xs-0">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+شماره تماس پشتیبانی سفارش</div>
+                                    <div class="ci-text">
+                                        ۸۶۰۳۶۹۲۴ - ۰۲۱
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Phone -->
+
+                            <!-- Email -->
+                            <div class="col-sm-6 col-lg-3 pt-20 pb-20 pb-xs-0">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+ایمیل                                    </div>
+                                    <div class="ci-text">
+                                        <a href="mailto:hi@fooday.ir">hi@fooday.ir</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Email -->
+
+                            <!-- Address -->
+                            <div class="col-sm-6 col-lg-3 pt-20 pb-20 pb-xs-0">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+                                        آدرس
+                                    </div>
+                                    <div class="ci-text">
+                                        تهران، اتوبان باکری، قبل از هایپر استار، خیابان ارم
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Address -->
+
+                            <!-- Opening Time -->
+                            <div class="col-sm-6 col-lg-3 pt-20 pb-20 pb-xs-0">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+                                        ساعات کاری
+                                    </div>
+                                    <div class="ci-text">
+                                        هر روز از ساعت ۸ الی ۲۴
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Opening Time -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Divider -->
+                <hr class="mt-0 mb-60 " />
+                <!-- End Divider -->
+
+                <!-- Social Links -->
+                <div class="footer-social-links mb-30">
+                    <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="#" title="LinkedIn+" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+
+                </div>
+                <!-- End Social Links -->
+
+                <!-- Footer Text -->
+                <div class="footer-text">
+
+                    <!-- Copyright -->
+                    <div class="footer-copy font-alt">
+                        <a href="#" target="_blank">ریتم ۲۰۱۷</a>
+                    </div>
+                    <!-- End Copyright -->
+
+                    <div class="footer-made">
+                         ساخته شده با هنر و تکنولوژی جهانی
+                    </div>
+
+                </div>
+                <!-- End Footer Text -->
+
+            </div>
+
+            <!-- Top Link -->
+            <div class="local-scroll">
+                <a href="#top" class="link-to-top"><i class="fa fa-caret-up"></i></a>
+            </div>
+            <!-- End Top Link -->
+
+        </footer>
+        <!-- End Foter -->
+
+    </div>
+    <!-- End Page Wrap -->
+
+    <!-- JS -->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+       <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+       <script type="text/javascript" src="js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="js/SmoothScroll.js"></script>
+       <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+       <script type="text/javascript" src="js/jquery.localScroll.min.js"></script>
+       <script type="text/javascript" src="js/jquery.viewport.mini.js"></script>
+       <script type="text/javascript" src="js/jquery.countTo.js"></script>
+       <script type="text/javascript" src="js/jquery.appear.js"></script>
+       <script type="text/javascript" src="js/jquery.sticky.js"></script>
+       <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+       <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+       <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+       <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+       <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+       <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+       <!-- Replace test API Key "AIzaSyCfNcY0ZHZDX3n-ymp3rIk4CqOLE3aFUnk" with your own one below
+           **** You can get API Key here - https://developers.google.com/maps/documentation/javascript/get-api-key -->
+       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfNcY0ZHZDX3n-ymp3rIk4CqOLE3aFUnk"></script>
+           <script type="text/javascript" src="js/gmap3.min.js"></script>
+       <script type="text/javascript" src="js/all.js"></script>
+
+
+
+</body>
+
+</html>

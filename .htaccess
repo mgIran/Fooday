@@ -1,0 +1,9 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /fooday/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /fooday/index.php [L]
+</IfModule>
