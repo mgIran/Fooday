@@ -18,6 +18,15 @@
 <?php endif;?>
 <!--LANGUAGE SELECTION TOP-->
 
+<!-- Page Wrap -->
+<div class="page" id="top">
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- End Page Loader -->
+
 <!--TOP MENU-->
 <?php $this->renderPartial('/layouts/front_top_menu',array(
   'action'=>Yii::app()->controller->action->id,
@@ -45,3 +54,6 @@
 
 <!--FOOTER-->
 <?php $this->renderPartial('/layouts/front_footer');?>
+
+</div>
+<!-- End Page Wrap -->

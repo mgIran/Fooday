@@ -1,4 +1,4 @@
-
+<?/*
 <?php if ( getOptionA('disabled_subscription') == ""):?>
 <form method="POST" id="frm-subscribe" class="frm-subscribe" onsubmit="return false;">
 <?php echo CHtml::hiddenField('action','subscribeNewsletter')?>
@@ -130,4 +130,128 @@
          
       </div> <!--row-->
   </div> <!--container-->
-</div> <!--section-footer-->
+</div> <!--section-footer-->*/?>
+
+
+
+
+<!-- Foter -->
+<footer class="small-section bg-gray-lighter footer pb-60">
+    <div class="container">
+
+        <div class="row mb-40 align-right">
+
+            <div class="col-sm-12">
+                <div class="row">
+
+                    <!-- Phone -->
+                    <div class="col-sm-6 col-lg-3 pt-20 pb-20 pb-xs-0">
+                        <div class="contact-item">
+                            <div class="ci-icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="ci-title font-alt">شماره تماس پشتیبانی سفارش</div>
+                            <div class="ci-text"><?php echo getOptionA('website_contact_phone');?></div>
+                        </div>
+                    </div>
+                    <!-- End Phone -->
+
+                    <!-- Email -->
+                    <div class="col-sm-6 col-lg-3 pt-20 pb-20 pb-xs-0">
+                        <div class="contact-item">
+                            <div class="ci-icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="ci-title font-alt">ایمیل</div>
+                            <div class="ci-text">
+                                <a href="mailto:hi@fooday.ir"><?php echo getOptionA('website_contact_email');?></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Email -->
+
+                    <!-- Address -->
+                    <div class="col-sm-6 col-lg-3 pt-20 pb-20 pb-xs-0">
+                        <div class="contact-item">
+                            <div class="ci-icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div class="ci-title font-alt">آدرس</div>
+                            <div class="ci-text"><?php echo getOptionA('website_address');?></div>
+                        </div>
+                    </div>
+                    <!-- End Address -->
+
+                    <!-- Opening Time -->
+                    <div class="col-sm-6 col-lg-3 pt-20 pb-20 pb-xs-0">
+                        <div class="contact-item">
+                            <div class="ci-icon">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <div class="ci-title font-alt">ساعات کاری</div>
+                            <div class="ci-text">هر روز از ساعت ۸ الی ۲۴</div>
+                        </div>
+                    </div>
+                    <!-- End Opening Time -->
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Divider -->
+        <hr class="mt-0 mb-60 " />
+        <!-- End Divider -->
+
+        <?php if ($social_flag<>1):?>
+        <!-- Social Links -->
+        <div class="footer-social-links mb-30">
+            <?php if (!empty($google_page)):?>
+                <a href="<?php echo FunctionsV3::prettyUrl($google_page)?>" title="Google" target="_blank"><i class="fa fa-google"></i></a>
+            <?php endif;?>
+
+            <?php if (!empty($twitter_page)):?>
+                <a href="<?php echo FunctionsV3::prettyUrl($twitter_page)?>" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+            <?php endif;?>
+
+            <?php if (!empty($fb_page)):?>
+                <a href="<?php echo FunctionsV3::prettyUrl($fb_page)?>" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            <?php endif;?>
+
+            <?php if (!empty($intagram_page)):?>
+                <a href="<?php echo FunctionsV3::prettyUrl($intagram_page)?>" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+            <?php endif;?>
+
+            <?php if (!empty($youtube_url)):?>
+                <a href="<?php echo FunctionsV3::prettyUrl($youtube_url)?>" title="Youtube" target="_blank"><i class="fa fa-youtube"></i></a>
+            <?php endif;?>
+        </div>
+        <!-- End Social Links -->
+        <?php endif;?>
+
+        <!-- Footer Text -->
+        <div class="footer-text">
+
+            <!-- Copyright -->
+            <div class="footer-copy font-alt">
+                <a href="#" target="_blank">ریتم ۲۰۱۷</a>
+            </div>
+            <!-- End Copyright -->
+
+            <div class="footer-made">
+                ساخته شده با هنر و تکنولوژی جهانی
+            </div>
+
+        </div>
+        <!-- End Footer Text -->
+
+    </div>
+
+    <!-- Top Link -->
+    <div class="local-scroll">
+        <a href="#top" class="link-to-top"><i class="fa fa-caret-up"></i></a>
+    </div>
+    <!-- End Top Link -->
+
+</footer>
+<!-- End Foter -->

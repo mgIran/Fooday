@@ -6,8 +6,8 @@ class ScriptManager
 		$baseUrl = Yii::app()->baseUrl; 
         $cs = Yii::app()->getClientScript();
         //$cs->registerScriptFile('//code.jquery.com/jquery-1.10.2.min.js',CClientScript::POS_END);            
-        $cs->registerScriptFile($baseUrl."/assets/vendor/jquery-1.10.2.min.js",CClientScript::POS_END);            
-        
+        $cs->registerScriptFile($baseUrl."/assets/vendor/jquery-1.10.2.min.js",CClientScript::POS_END);
+
         $cs->registerScriptFile("//code.jquery.com/ui/1.10.3/jquery-ui.js"
 		,CClientScript::POS_END); 
         
@@ -77,7 +77,7 @@ class ScriptManager
 		);		
 		
 		$cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/jquery.dataTables.min.js"
-		,CClientScript::POS_END); 
+		,CClientScript::POS_END);
 		
 		$cs->registerScriptFile($baseUrl."/assets/vendor/DataTables/fnReloadAjax.js"
 		,CClientScript::POS_END); 
@@ -219,48 +219,98 @@ class ScriptManager
 		,CClientScript::POS_END); 
 		
 		$cs->registerScriptFile($baseUrl."/assets/js/store-v3.js?ver=3"
-		,CClientScript::POS_END); 
+		,CClientScript::POS_END);
+
+		/*
+		   *********************************************
+			ADD BY RAHBOD
+		   *********************************************
+		 */
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.easing.1.3.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/SmoothScroll.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.scrollTo.min.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.localScroll.min.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.viewport.mini.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.countTo.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.appear.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.sticky.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.fitvids.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/owl.carousel.min.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/isotope.pkgd.min.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/imagesloaded.pkgd.min.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/jquery.magnific-popup.min.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/gmap3.min.js"
+			,CClientScript::POS_END);
+
+		$cs->registerScriptFile($baseUrl."/assets/js/all.js"
+			,CClientScript::POS_END);
 	}
 	
 	public static function registerAllCSSFiles()
 	{
 		$baseUrl = Yii::app()->baseUrl; 
 		$cs = Yii::app()->getClientScript();
-		$cs->registerCssFile($baseUrl.'/assets/css/store.css?ver=1.0');		
+//		$cs->registerCssFile($baseUrl.'/assets/css/store.css?ver=1.0');
 		$cs->registerCssFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css');
 		
 		$cs->registerCssFile("//fonts.googleapis.com/css?family=Open+Sans|Podkova|Rosario|Abel|PT+Sans|Source+Sans+Pro:400,600,300|Roboto|Montserrat:400,700|Lato:400,300,100italic,100,300italic,400italic,700,700italic,900,900italic|Raleway:300,400,600,800");					
 				
 		//$cs->registerCssFile("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-		$cs->registerCssFile($baseUrl."/assets/vendor/font-awesome/css/font-awesome.min.css");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/font-awesome/css/font-awesome.min.css");
 				
 		
-		$cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
-		$cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
-		$cs->registerCssFile($baseUrl."/assets/vendor/chosen/chosen.css");
-		$cs->registerCssFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.css?ver=1");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/colorpick/css/colpick.css");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/iCheck/skins/all.css");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/chosen/chosen.css");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/fancybox/source/jquery.fancybox.css?ver=1");
 		$cs->registerCssFile($baseUrl."/assets/vendor/animate.min.css");
 		//$cs->registerCssFile($baseUrl."/assets/vendor/flexslider/flexslider.css");
-		$cs->registerCssFile($baseUrl."/assets/vendor/magnific-popup/magnific-popup.css");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/magnific-popup/magnific-popup.css");
 		//$cs->registerCssFile($baseUrl."/assets/vendor/bxslider/jquery.bxslider.css");
-		$cs->registerCssFile($baseUrl."/assets/vendor/intel/build/css/intlTelInput.css");
-		$cs->registerCssFile($baseUrl."/assets/vendor/rupee/rupyaINR.css");			
+//		$cs->registerCssFile($baseUrl."/assets/vendor/intel/build/css/intlTelInput.css");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/rupee/rupyaINR.css");
 		
 		//$cs->registerCssFile('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');	
 		$cs->registerCssFile($baseUrl."/assets/vendor/bootstrap/css/bootstrap.min.css");		
 				
-		$cs->registerCssFile($baseUrl."/assets/vendor/raty/jquery.raty.css");	
+//		$cs->registerCssFile($baseUrl."/assets/vendor/raty/jquery.raty.css");
 		
 		//$cs->registerCssFile("//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
-		$cs->registerCssFile($baseUrl."/assets/vendor/ionicons-2.0.1/css/ionicons.min.css");	
+//		$cs->registerCssFile($baseUrl."/assets/vendor/ionicons-2.0.1/css/ionicons.min.css");
 		
-		$cs->registerCssFile("//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/css/bootstrap-select.min.css");	
+//		$cs->registerCssFile("//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/css/bootstrap-select.min.css");
 		
-		$cs->registerCssFile($baseUrl."/assets/vendor/nprogress/nprogress.css");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/nprogress/nprogress.css");
 		
-		$cs->registerCssFile($baseUrl."/assets/vendor/justified-gallery/css/justifiedGallery.min.css");
+//		$cs->registerCssFile($baseUrl."/assets/vendor/justified-gallery/css/justifiedGallery.min.css");
 		
-		$cs->registerCssFile($baseUrl."/assets/vendor/EasyAutocomplete/easy-autocomplete.min.css");		
+		$cs->registerCssFile($baseUrl."/assets/vendor/EasyAutocomplete/easy-autocomplete.min.css");
 		
 		/*$cs->registerCssFile($baseUrl."/assets/vendor/pickadate.js/lib/themes/default.css");
 		$cs->registerCssFile($baseUrl."/assets/vendor/pickadate.js/lib/themes/default.time.css");*/	
@@ -269,9 +319,23 @@ class ScriptManager
 		  $cs->registerCssFile($baseUrl."/assets/vendor/timepicker.co/jquery.timepicker.min.css");
 		}
 		
-		$cs->registerCssFile($baseUrl.'/assets/css/store-v2.css?ver=1.0');
-		$cs->registerCssFile($baseUrl.'/assets/css/responsive.css?ver=1.0');
-	}	
+//		$cs->registerCssFile($baseUrl.'/assets/css/store-v2.css?ver=1.0');
+//		$cs->registerCssFile($baseUrl.'/assets/css/responsive.css?ver=1.0');
+
+        /*
+		   *********************************************
+			ADD BY RAHBOD
+		   *********************************************
+		 */
+        $cs->registerCssFile($baseUrl.'/assets/css/bootstrap-rtl.min.css');
+        $cs->registerCssFile($baseUrl.'/assets/css/style.css');
+        $cs->registerCssFile($baseUrl.'/assets/css/rtl.css');
+        $cs->registerCssFile($baseUrl.'/assets/css/style-responsive.css');
+        $cs->registerCssFile($baseUrl.'/assets/css/vertical-rhythm.min.css');
+        $cs->registerCssFile($baseUrl.'/assets/css/owl.carousel.css');
+        $cs->registerCssFile($baseUrl.'/assets/css/magnific-popup.css');
+        $cs->registerCssFile($baseUrl.'/assets/css/fontiran.css');
+	}
 	
 	public static function registerGlobalVariables()
 	{				

@@ -108,7 +108,16 @@ class FunctionsV3
                                        
        $top_menu[]=array('visible'=>$client_signup,
                 'tag'=>"signup",'label'=>''.Yii::t("default","Login & Signup"),
-                'url'=>array('/store/signup'));   
+                'url'=>array('/store/signup'));
+
+        $top_menu[]=array(
+                'tag'=>"blog",
+                'label'=>'<span class="btn btn-mod btn-circle btn-w">'.Yii::t("default","Blog").'</span>',
+                'url'=>array('/blog'),
+                'linkOptions'=> array(
+                    'target' => '_blank',
+                ),
+            );
                        
         if ( Yii::app()->functions->isClientLogin()){
         	$top_menu[]=array(

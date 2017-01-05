@@ -6,49 +6,49 @@ id="find_restaurant_by_address" value="<?php echo $home_search_text?>" >
 
   <ul class="search-menu">
   
-   <?php if ($theme_search_merchant_address!=2):?> 
-   <li><a href="javascript:;" class="selected byaddress" data-tab="tab-byaddress"><i></i></a></li>
+   <?php if ($theme_search_merchant_address!=2):?>
+      <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="selected byaddress" data-tab="tab-byaddress"><i></i></a></li></div>
    <?php endif;?>
    
    <?php if ($theme_search_merchant_name!=2):?>
-   <li><a href="javascript:;" class="byname" data-tab="tab-byname"><i></i></a></li>
+      <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="byname" data-tab="tab-byname"><i></i></a></li></div>
    <?php endif;?>
    
    <?php if ($theme_search_street_name!=2):?>
-   <li><a href="javascript:;" class="bystreet" data-tab="tab-bystreet"><i></i></a></li>
+          <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="bystreet" data-tab="tab-bystreet"><i></i></a></li></div>
    <?php endif;?>
-   
-   <?php if ($theme_search_cuisine!=2):?>
-   <li><a href="javascript:;" class="bycuisine" data-tab="tab-bycuisine"><i></i></a></li>
-   <?php endif;?>
+<!--   -->
+<!--   --><?php //if ($theme_search_cuisine!=2):?>
+<!--          <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="bycuisine" data-tab="tab-bycuisine"><i></i></a></li></div>-->
+<!--   --><?php //endif;?>
    
    <?php if ($theme_search_foodname!=2):?>
-   <li><a href="javascript:;" class="byfood" data-tab="tab-byfood"><i></i></a></li>   
+          <div class="col-md-3 col-sm-6 col-xs-6"><li><a href="javascript:;" class="byfood" data-tab="tab-byfood"><i></i></a></li></div>
    <?php endif;?>
   </ul>
   
-  <div class="border mobile-search-menu mytable">    
-    
-     <?php if ($theme_search_merchant_address!=2):?> 
-     <a href="javascript:;" class="mycol selected byaddress" data-tab="tab-byaddress" ><i class="ion-record"></i></a>
-     <?php endif;?>
-     
-     <?php if ($theme_search_merchant_name!=2):?>
-     <a href="javascript:;" class="mycol byname" data-tab="tab-byname" ><i class="ion-record"></i></a>
-     <?php endif;?>
-     
-     <?php if ($theme_search_street_name!=2):?>
-     <a href="javascript:;" class="mycol bystreet" data-tab="tab-bystreet" ><i class="ion-record"></i></a>
-     <?php endif;?>
-     
-     <?php if ($theme_search_cuisine!=2):?>
-     <a href="javascript:;" class="mycol bycuisine" data-tab="tab-bycuisine"><i class="ion-record"></i></a>
-     <?php endif;?>
-     
-     <?php if ($theme_search_foodname!=2):?>
-     <a href="javascript:;" class="mycol byfood" data-tab="tab-byfood"><i class="ion-record"></i></a>
-     <?php endif;?>
-  </div> <!--end row-->
+<!--  <div class="border mobile-search-menu mytable">    -->
+<!--    -->
+<!--     --><?php //if ($theme_search_merchant_address!=2):?><!-- -->
+<!--     <a href="javascript:;" class="mycol selected byaddress" data-tab="tab-byaddress" ><i class="ion-record"></i></a>-->
+<!--     --><?php //endif;?>
+<!--     -->
+<!--     --><?php //if ($theme_search_merchant_name!=2):?>
+<!--     <a href="javascript:;" class="mycol byname" data-tab="tab-byname" ><i class="ion-record"></i></a>-->
+<!--     --><?php //endif;?>
+<!--     -->
+<!--     --><?php //if ($theme_search_street_name!=2):?>
+<!--     <a href="javascript:;" class="mycol bystreet" data-tab="tab-bystreet" ><i class="ion-record"></i></a>-->
+<!--     --><?php //endif;?>
+<!--     -->
+<!--     --><?php //if ($theme_search_cuisine!=2):?>
+<!--     <a href="javascript:;" class="mycol bycuisine" data-tab="tab-bycuisine"><i class="ion-record"></i></a>-->
+<!--     --><?php //endif;?>
+<!--     -->
+<!--     --><?php //if ($theme_search_foodname!=2):?>
+<!--     <a href="javascript:;" class="mycol byfood" data-tab="tab-byfood"><i class="ion-record"></i></a>-->
+<!--     --><?php //endif;?>
+<!--  </div> <!--end row-->
   
   <h1 class="home-search-text"><?php echo $home_search_text;?></h1>
   <p class="home-search-subtext"><?php echo $home_search_subtext;?></p>  
@@ -63,7 +63,7 @@ id="find_restaurant_by_address" value="<?php echo $home_search_text?>" >
         ))?>        
         </div>        
         <div class="col-sm-1 col-xs-2 relative">
-          <button type="submit"><i class="ion-ios-search"></i></button>         
+          <button type="submit"><i class="fa fa-fw"></i></button>
         </div>
      </div>
   </div> <!--search-input-wrap-->
@@ -81,7 +81,7 @@ id="find_restaurant_by_address" value="<?php echo $home_search_text?>" >
         ))?>        
         </div>        
         <div class="col-sm-1 col-xs-2 relative">
-          <button type="submit"><i class="ion-ios-search"></i></button>         
+          <button type="submit"><i class="fa fa-fw"></i></button>
         </div>
      </div>
   </div> <!--search-input-wrap-->
@@ -99,7 +99,7 @@ id="find_restaurant_by_address" value="<?php echo $home_search_text?>" >
         ))?>        
         </div>        
         <div class="col-sm-1 col-xs-2 relative">
-          <button type="submit"><i class="ion-ios-search"></i></button>         
+          <button type="submit"><i class="fa fa-fw"></i></button>
         </div>
      </div>
   </div> <!--search-input-wrap-->
@@ -117,7 +117,7 @@ id="find_restaurant_by_address" value="<?php echo $home_search_text?>" >
         ))?>        
         </div>        
         <div class="col-sm-1 col-xs-2 relative">
-          <button type="submit"><i class="ion-ios-search"></i></button>         
+          <button type="submit"><i class="fa fa-fw"></i></button>
         </div>
      </div>
   </div> <!--search-input-wrap-->
@@ -135,7 +135,7 @@ id="find_restaurant_by_address" value="<?php echo $home_search_text?>" >
         ))?>        
         </div>        
         <div class="col-sm-1 col-xs-2 relative">
-          <button type="submit"><i class="ion-ios-search"></i></button>         
+          <button type="submit"><i class="fa fa-fw"></i></button>
         </div>
      </div>
   </div> <!--search-input-wrap-->

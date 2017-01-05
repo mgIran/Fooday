@@ -479,63 +479,32 @@ function form_submit(formid)
         		}
         		
         		if ( action == "placeOrder" ){
-        			console.debug(data.details.payment_type);         			
-        			switch (data.details.payment_type)
-        			{
-        				case "pyp":
-        				case "paypal":
+        			console.debug(data.details.payment_type);
+        			if ( data.details.payment_type =="pyp" || data.details.payment_type =="paypal"){
         				window.location.replace(sites_url+"/paypalinit/?id="+data.details.order_id);
-        				break;
-        				
-        				case "stp":
-        				case "stripe":
+        			} else if(data.details.payment_type =="stp" || data.details.payment_type =="stripe" )	{
         				window.location.replace(sites_url+"/stripeinit/?id="+data.details.order_id);
-        				break;
-        				
-        				case "mcd":
-        				case "mercadopago":
+        			} else if(data.details.payment_type =="mcd" || data.details.payment_type =="mercadopago" )	{
         				window.location.replace(sites_url+"/mercadoinit/?id="+data.details.order_id);	
-        				break;
-        				
-        				case "pyl":
+        			} else if(data.details.payment_type =="pyl")	{
         				window.location.replace(sites_url+"/paylineinit/?id="+data.details.order_id);		
-        				break;
-        				
-        				case "ide":
+        			} else if(data.details.payment_type =="ide")	{
         				window.location.replace(sites_url+"/sisowinit/?id="+data.details.order_id);			
-        				break;
-        				
-        				case "payu":
+        			} else if(data.details.payment_type =="payu")	{
         				window.location.replace(sites_url+"/payuinit/?id="+data.details.order_id);			
-        				break;
-        				
-        				case "pys":
-        				window.location.replace(sites_url+"/payserainit/?id="+data.details.order_id);
-        				break;
-        				
-        				case "bcy":
-        				window.location.replace(sites_url+"/bcyinit/?id="+data.details.order_id);
-        				break;
-        				
-        				case "epy":
-        				window.location.replace(sites_url+"/epyinit/?id="+data.details.order_id);
-        				break;
-        				
-        				case "atz":
-        				window.location.replace(sites_url+"/atzinit/?id="+data.details.order_id);
-        				break;
-        				
-        				case "btr":
-        				window.location.replace(sites_url+"/btrinit/?id="+data.details.order_id);
-        				break;
-        				
-        				case "mol":
-        				window.location.replace(sites_url+"/mollieinit/?id="+data.details.order_id);	
-        				break;
-        				        			
-        				default:
+        			} else if(data.details.payment_type =="pys")	{
+        				window.location.replace(sites_url+"/payserainit/?id="+data.details.order_id);					
+        			} else if(data.details.payment_type =="bcy")	{
+        				window.location.replace(sites_url+"/bcyinit/?id="+data.details.order_id);					
+        			} else if(data.details.payment_type =="epy")	{
+        				window.location.replace(sites_url+"/epyinit/?id="+data.details.order_id);						
+        			} else if(data.details.payment_type =="atz")	{
+        				window.location.replace(sites_url+"/atzinit/?id="+data.details.order_id);	
+        			/*braintree*/	
+        			} else if(data.details.payment_type =="btr")	{
+        				window.location.replace(sites_url+"/btrinit/?id="+data.details.order_id);						
+        			} else{
         				window.location.replace(sites_url+"/receipt/?id="+data.details.order_id);
-        				break;
         			}        			
         		}        		        
         		
@@ -626,10 +595,11 @@ window.location.replace(sites_url+"/merchantSignup/Do/thankyou2/token/"+$("#toke
 	        			   	   case "epy":
 	        			   	   case "atz":
 	        			   	   case "btr":
-	        			   	   case "mol":	        			   	   
+	        			   	   //window.location.replace(data.details);
 	        			   	   window.location.href=data.details;
 	        			   	   break;
-	        			   	   default:	        			   	   
+	        			   	   default:
+	        			   	   //window.location.replace(sites_url+"/merchantSignup/Do/step4/token/"+data.details);
 	        			   	   window.location.href=sites_url+"/merchantsignup?Do=step4&token="+data.details;
 	        			   	   break;
 	        			   }
@@ -807,9 +777,8 @@ jQuery(document).ready(function() {
     	}
 
     	    
-    	/*mobile issue*/
     	if ( $(this).hasClass("mbile")){
-    	    var mbile_url=sites_url+"/item/?item_id="+id+"&mtid="+ $("#merchant_id").val();
+    	    var mbile_url=home_url+"/item/?item_id="+id+"&mtid="+ $("#merchant_id").val();
     	    mbile_url+= "&slug="+$("#restaurant_slug").val();
     	    window.location.href=mbile_url;
     		return;
@@ -1836,11 +1805,6 @@ function load_item_cart()
     dataType: 'json',       
     success: function(data){ 
     	busy(false);      	
-    	
-    	if( $('.cart-mobile-handle').is(':visible') ) {			
-		 showMobileCartNos();		
-	    }
-    	
     	if (data.code==1){
     		$(".item-order-wrap").html(data.details.html);
     		$(".checkout").attr("disabled",false);    		

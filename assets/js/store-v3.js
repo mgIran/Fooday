@@ -1016,34 +1016,5 @@ jQuery(document).ready(function() {
 			$(".cart-mobile-handle").hide();
 		}
 	}
-		
-	if( $('.cart-mobile-handle').is(':visible') ) {			
-		showMobileCartNos();		
-	}
 	
 }); /*ready*/
-
-function showMobileCartNos()
-{
-	busy(true);
-	var params="action=getCartCount&tbl=cart";	
-	 $.ajax({    
-        type: "POST",
-        url: ajax_url,
-        data: params,
-        dataType: 'json',       
-        success: function(data){
-        	busy(false);
-        	if (data.code==1){    
-        		$(".cart_count").html(data.details);       
-        		$(".cart_count").show();
-        	} else {      	        		
-        		$(".cart_count").html(0);       
-        		$(".cart_count").hide();
-        	}        	        	
-        }, 
-        error: function(){	        	        	
-        	busy(false);	        	
-        }		
-    });
-}

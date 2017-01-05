@@ -84,7 +84,7 @@ class StoreController extends CController
 		   Yii::app()->functions->setSEO($seo_title,$seo_meta,$seo_key);
 		}
 
-		
+
 		$this->render('index',array(
 		   'home_search_mode'=>getOptionA('home_search_mode'),
 		   'enabled_advance_search'=> getOptionA('enabled_advance_search'),
