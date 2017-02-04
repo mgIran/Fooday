@@ -4,6 +4,7 @@ var $ = jQuery.noConflict();
 var hl_end_content_pos;
 var locations;
 var global_plot_marker=[];
+var findNearRestaurant=false;
 
 jQuery.fn.exists = function(){return this.length>0;}
 
@@ -16,7 +17,7 @@ jQuery(document).ready(function() {
     }
     dump(website_date_picker_format);
     
-    jQuery(".j_date").datepicker({ 
+    /*jQuery(".j_date").datepicker({
     	//dateFormat: 'yy-mm-dd' ,
     	dateFormat: website_date_picker_format,        
         altFormat: "yy-mm-dd",       
@@ -43,51 +44,51 @@ jQuery(document).ready(function() {
 			dump(formatedDate);
 			$("#"+original_id).val(formatedDate);
 		}
-	});	
-	jQuery(".j_date2").datepicker({ 
-    	//dateFormat: 'yy-mm-dd' ,
-    	dateFormat: website_date_picker_format,        
-        altFormat: "yy-mm-dd",       
-    	changeMonth: true,
-    	changeYear: true ,	   
-	    //minDate: 0,
-	    prevText: js_lang.datep_1,
-		nextText: js_lang.datep_2,
-		currentText: js_lang.datep_3,
-		monthNames: [js_lang.January,js_lang.February,js_lang.March,js_lang.April,js_lang.May,js_lang.June,
-		js_lang.July,js_lang.August,js_lang.September,js_lang.October,js_lang.November,js_lang.December],
-		monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-		js_lang.Jul, js_lang.Aug, js_lang.Sep, js_lang.Oct, js_lang.Nov, js_lang.Dec],
-		dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-		dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-		dayNamesMin: [js_lang.Su,js_lang.Mo,js_lang.Tu,js_lang.We,js_lang.Th,js_lang.Fr,js_lang.Sa],						
-		isRTL: false,
-		onSelect : function( element, object ) {
-			var original_id=$(this).data("id");
-			dump(original_id);
-			var altFormat = $(this).datepicker('option', 'altFormat');
-			var currentDate = $(this).datepicker('getDate');
-			var formatedDate = $.datepicker.formatDate(altFormat, currentDate);
-			dump(formatedDate);
-			$("#"+original_id).val(formatedDate);
-		}
-	});	
-	
+	});*/
+
+    jQuery(".j_date").each(function() {
+        var original_id = $(this).data("id");
+        jQuery(this).persianDatepicker({
+            format: website_date_picker_format,
+            altFormat: 'g',
+            persianDigit: false,
+            altField: '#' + $(this).data("id"),
+            onSelect: function (element, object) {
+                var date = persianDate(element).toDate();
+                var formatedDate = $.datepicker.formatDate('yy-mm-dd', date);
+                $("#" + original_id).val(formatedDate);
+            },
+            altFieldFormatter: function (unixDate) {
+                var self = this;
+                var thisAltFormat = self.altFormat.toLowerCase();
+                if (thisAltFormat === "gregorian" | thisAltFormat === "g") {
+                    return $.datepicker.formatDate('yy-mm-dd', new Date(unixDate));
+                }
+                if (thisAltFormat === "unix" | thisAltFormat === "u") {
+                    return unixDate;
+                }
+                else {
+                    return new persianDate(unixDate).format(self.altFormat);
+                }
+            }
+        });
+    });
+
 	/** update 2.4 */
 	var booking_mindate=1;	
 	if ( $("#accept_booking_sameday").exists() ){
 		if ( $("#accept_booking_sameday").val()==2){		
 			booking_mindate=0;
 		}
-	}	
+	}
 	/** update 2.4 */
 	
-	jQuery(".date_booking").datepicker({ 
+	/*jQuery(".date_booking").datepicker({
 		//dateFormat: 'yy-mm-dd' ,
-		dateFormat: website_date_picker_format,        
-        altFormat: "yy-mm-dd",       
+		dateFormat: website_date_picker_format,
+        altFormat: "yy-mm-dd",
 		changeMonth: true,
-		changeYear: true ,	   
+		changeYear: true ,
 	    minDate: booking_mindate,
 	    prevText: js_lang.datep_1,
 		nextText: js_lang.datep_2,
@@ -109,7 +110,35 @@ jQuery(document).ready(function() {
 			dump(formatedDate);
 			$("#"+original_id).val(formatedDate);
 		}
-	});	
+	});console.log(booking_mindate);*/
+	var nowTimestamp=persianDate().format('X');
+	jQuery(".date_booking").persianDatepicker({
+        format: website_date_picker_format,
+        altFormat: 'g',
+        persianDigit: false,
+        maxDate: (nowTimestamp - (60 * 60 * 24)) * 1000,
+        altField: '#' + $(this).data("id"),
+        onSelect: function (element, object) {
+            var date = persianDate(element).toDate();
+            var formatedDate = $.datepicker.formatDate('yy-mm-dd', date);
+            var original_id = $(this).data("id");
+            $("#" + original_id).val(formatedDate);
+        },
+        altFieldFormatter: function (unixDate) {
+            var self = this;
+            var thisAltFormat = self.altFormat.toLowerCase();
+            if (thisAltFormat === "gregorian" | thisAltFormat === "g") {
+                return $.datepicker.formatDate('yy-mm-dd', new Date(unixDate));
+            }
+            if (thisAltFormat === "unix" | thisAltFormat === "u") {
+                return unixDate;
+            }
+            else {
+                return new persianDate(unixDate).format(self.altFormat);
+            }
+        }
+    });
+
 	
 	
 	var show_period=false;
@@ -120,12 +149,23 @@ jQuery(document).ready(function() {
 	}
 	
 	if ( $("#theme_time_pick").val() ==""){				
-		jQuery('.timepick').timepicker({        
+		/*jQuery('.timepick').timepicker({
 	        showPeriod: show_period,
 			hourText: js_lang.Hour,       
 			minuteText: js_lang.Minute,  
 			amPmText: [js_lang.AM, js_lang.PM],
-	    });	      
+	    });*/
+        jQuery('.timepick').persianDatepicker({
+            //showPeriod: show_period,
+			//hourText: js_lang.Hour,
+			//minuteText: js_lang.Minute,
+			//amPmText: [js_lang.AM, js_lang.PM],
+
+            //altField: '#timepickerAltField',
+            //altFormat: "YYYY MM DD HH:mm:ss",
+            format: "HH:mm",
+            onlyTimePicker: true
+	    });
 	    jQuery('#booking_time').timepicker({
 	        showPeriod: show_period,
 			hourText: js_lang.Hour,       
@@ -479,32 +519,68 @@ function form_submit(formid)
         		}
         		
         		if ( action == "placeOrder" ){
-        			console.debug(data.details.payment_type);
-        			if ( data.details.payment_type =="pyp" || data.details.payment_type =="paypal"){
+        			console.debug(data.details.payment_type);         			
+        			switch (data.details.payment_type)
+        			{
+        				case "mlt":
+        				case "mellat":
+        				window.location.replace(sites_url+"/mellatinit/?id="+data.details.order_id);
+        				break;
+
+                        case "pyp":
+        				case "paypal":
         				window.location.replace(sites_url+"/paypalinit/?id="+data.details.order_id);
-        			} else if(data.details.payment_type =="stp" || data.details.payment_type =="stripe" )	{
+        				break;
+        				
+        				case "stp":
+        				case "stripe":
         				window.location.replace(sites_url+"/stripeinit/?id="+data.details.order_id);
-        			} else if(data.details.payment_type =="mcd" || data.details.payment_type =="mercadopago" )	{
+        				break;
+        				
+        				case "mcd":
+        				case "mercadopago":
         				window.location.replace(sites_url+"/mercadoinit/?id="+data.details.order_id);	
-        			} else if(data.details.payment_type =="pyl")	{
+        				break;
+        				
+        				case "pyl":
         				window.location.replace(sites_url+"/paylineinit/?id="+data.details.order_id);		
-        			} else if(data.details.payment_type =="ide")	{
+        				break;
+        				
+        				case "ide":
         				window.location.replace(sites_url+"/sisowinit/?id="+data.details.order_id);			
-        			} else if(data.details.payment_type =="payu")	{
+        				break;
+        				
+        				case "payu":
         				window.location.replace(sites_url+"/payuinit/?id="+data.details.order_id);			
-        			} else if(data.details.payment_type =="pys")	{
-        				window.location.replace(sites_url+"/payserainit/?id="+data.details.order_id);					
-        			} else if(data.details.payment_type =="bcy")	{
-        				window.location.replace(sites_url+"/bcyinit/?id="+data.details.order_id);					
-        			} else if(data.details.payment_type =="epy")	{
-        				window.location.replace(sites_url+"/epyinit/?id="+data.details.order_id);						
-        			} else if(data.details.payment_type =="atz")	{
-        				window.location.replace(sites_url+"/atzinit/?id="+data.details.order_id);	
-        			/*braintree*/	
-        			} else if(data.details.payment_type =="btr")	{
-        				window.location.replace(sites_url+"/btrinit/?id="+data.details.order_id);						
-        			} else{
+        				break;
+        				
+        				case "pys":
+        				window.location.replace(sites_url+"/payserainit/?id="+data.details.order_id);
+        				break;
+        				
+        				case "bcy":
+        				window.location.replace(sites_url+"/bcyinit/?id="+data.details.order_id);
+        				break;
+        				
+        				case "epy":
+        				window.location.replace(sites_url+"/epyinit/?id="+data.details.order_id);
+        				break;
+        				
+        				case "atz":
+        				window.location.replace(sites_url+"/atzinit/?id="+data.details.order_id);
+        				break;
+        				
+        				case "btr":
+        				window.location.replace(sites_url+"/btrinit/?id="+data.details.order_id);
+        				break;
+        				
+        				case "mol":
+        				window.location.replace(sites_url+"/mollieinit/?id="+data.details.order_id);	
+        				break;
+        				        			
+        				default:
         				window.location.replace(sites_url+"/receipt/?id="+data.details.order_id);
+        				break;
         			}        			
         		}        		        
         		
@@ -595,11 +671,10 @@ window.location.replace(sites_url+"/merchantSignup/Do/thankyou2/token/"+$("#toke
 	        			   	   case "epy":
 	        			   	   case "atz":
 	        			   	   case "btr":
-	        			   	   //window.location.replace(data.details);
+	        			   	   case "mol":	        			   	   
 	        			   	   window.location.href=data.details;
 	        			   	   break;
-	        			   	   default:
-	        			   	   //window.location.replace(sites_url+"/merchantSignup/Do/step4/token/"+data.details);
+	        			   	   default:	        			   	   
 	        			   	   window.location.href=sites_url+"/merchantsignup?Do=step4&token="+data.details;
 	        			   	   break;
 	        			   }
@@ -777,8 +852,9 @@ jQuery(document).ready(function() {
     	}
 
     	    
+    	/*mobile issue*/
     	if ( $(this).hasClass("mbile")){
-    	    var mbile_url=home_url+"/item/?item_id="+id+"&mtid="+ $("#merchant_id").val();
+    	    var mbile_url=sites_url+"/item/?item_id="+id+"&mtid="+ $("#merchant_id").val();
     	    mbile_url+= "&slug="+$("#restaurant_slug").val();
     	    window.location.href=mbile_url;
     		return;
@@ -1782,15 +1858,15 @@ function uk_msg_sucess(msg)
 {
 	var n = noty({
 		 text: msg,
-		 type        : "success" ,		 
+		 type        : "success" ,
 		 theme       : 'relax',
-		 layout      : 'topCenter',		 
+		 layout      : 'topCenter',
 		 timeout:2500,
 		 animation: {
 	        open: 'animated fadeInDown', // Animate.css class names
-	        close: 'animated fadeOut', // Animate.css class names	        
+	        close: 'animated fadeOut', // Animate.css class names
 	    }
-	});	  
+	});
 }
 
 function load_item_cart()
@@ -1805,6 +1881,11 @@ function load_item_cart()
     dataType: 'json',       
     success: function(data){ 
     	busy(false);      	
+    	
+    	if( $('.cart-mobile-handle').is(':visible') ) {			
+		 showMobileCartNos();		
+	    }
+    	
     	if (data.code==1){
     		$(".item-order-wrap").html(data.details.html);
     		$(".checkout").attr("disabled",false);    		
@@ -2444,9 +2525,9 @@ jQuery(document).ready(function() {
 	});
 	
 	function success_geo(position) {	
-		if ( $("#s").val()!=""){
+		/*if ( $("#s").val()!=""){
 		 	 return;
-		 }	
+		 }*/
 		/*console.debug(position.coords.latitude);
 		console.debug(position.coords.longitude);		*/
 		//getAddress(position.coords.latitude,position.coords.longitude);
@@ -2464,7 +2545,9 @@ jQuery(document).ready(function() {
 				 	} else {	     				 						 		
 				        $("#s").val(results[0].formatted_address);
 				        $(".st").val(results[0].formatted_address);
-				 	} 
+				 	}
+					 if(findNearRestaurant)
+						 $("#s").parents('.row').find('button').trigger('click');
 				 } else {
 				 	 uk_msg(js_lang.trans_27);
 				 }
@@ -2476,16 +2559,31 @@ jQuery(document).ready(function() {
 	
 		
 	/*auto get geolocation*/
-	if ( $(".forms-search").exists() ) {
-		if (navigator.geolocation) {
-		   if ( $("#disabled_share_location").val()==""){	
-		   	  dump('detect current location');
-	          navigator.geolocation.getCurrentPosition(success_geo);
-		   } 
-	    } else {
-	        //error('Geo Location is not supported');
-	    }
-	}
+	$(".find-near-restaurant").click(function() {
+		if ($(".forms-search").exists()) {
+			findNearRestaurant=true;
+			if (navigator.geolocation) {
+				if ($("#disabled_share_location").val() == "") {
+					dump('detect current location');
+					noty({
+						text: "لطفا چند لحظه صبر کنید....",
+						type        : "success" ,
+						theme       : 'relax',
+						layout      : 'topCenter',
+						timeout:false,
+						animation: {
+							open: 'animated fadeInDown', // Animate.css class names
+							close: 'animated fadeOut', // Animate.css class names
+						}
+					});
+					navigator.geolocation.getCurrentPosition(success_geo);
+				}
+			} else {
+				//error('Geo Location is not supported');
+			}
+		}
+		return false;
+	});
 	
     function getAddress(lat,lng)
     {

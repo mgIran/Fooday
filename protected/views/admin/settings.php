@@ -659,11 +659,11 @@ echo " ".t("Default")." G:i:s"
 echo CHtml::dropDownList('website_date_picker_format',
 Yii::app()->functions->getOptionAdmin("website_date_picker_format")
 ,array(
-'yy-mm-dd'=>"yy-mm-dd - default",
-'mm-dd-yy'=>"mm-dd-yy",
-'dd-mm-yy'=>"dd-mm-yy",
-'yy-M-d'=>"yy-M-d",
-'M dd,yy'=>"M d, Y",
+'YYYY/MM/DD'=>"YYYY/MM/DD - default",
+'MM-DD-YYYY'=>"MM-DD-YYYY",
+'DD-MM-YYYY'=>"DD-MM-YYYY",
+'YYYY-MM-DD'=>"YYYY-MM-DD",
+'DD-MMMM-YYYY'=>"DD-MMMM-YYYY",
 ));
 ?>
 </div>

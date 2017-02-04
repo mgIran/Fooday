@@ -42,6 +42,11 @@
 
 <link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/vendor/rupee/rupyaINR.css" rel="stylesheet" />
 
+<!--RAHBOD-->
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/css/persian-datepicker-0.4.5.min.css" rel="stylesheet" />
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/css/fontiran.css" rel="stylesheet" />
+<!--RAHBOD-->
+
 </head>
 <body id="admin">
 
@@ -147,8 +152,6 @@ if ( !empty($website_time_picker_format)){
 }
 ?>
 
-</body>
-
 <!--<script src="//code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>  -->
 <script src="<?php echo Yii::app()->request->baseUrl;?>/assets/vendor/jquery-1.10.2.min.js" type="text/javascript"></script>  
 <script src="<?php echo Yii::app()->request->baseUrl;?>/assets/vendor/jquery.printelement.js" type="text/javascript"></script>  
@@ -197,6 +200,12 @@ var upload_url='<?php echo Yii::app()->request->baseUrl;?>/upload';
 
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl;?>/assets/vendor/jQuery-TE_v.1.4.0/jquery-te-1.4.0.min.js"></script>
 
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/admin.js?ver=1" type="text/javascript"></script>  
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/admin.js?ver=1" type="text/javascript"></script>
 
+<!--RAHBOD-->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/persian-date.js" type="text/javascript"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/persian-datepicker-0.4.5.min.js" type="text/javascript"></script>
+<!--RAHBOD-->
+
+</body>
 </html>

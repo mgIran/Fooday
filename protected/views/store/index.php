@@ -573,7 +573,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                         <div class="special-area">
                             <div class="special-single special-one">
                                 <figure>
-                                    <a href="#"><img src="<?php echo assetsURL()."/rtl/images/food/t1.jpg"?>" alt="special food"></a>
+                                    <a href="#"><img src="<?php echo assetsURL()."/images/food/t1.jpg"?>" alt="special food"></a>
                                     <figcaption>
                                         <div class="speacial-info">
                                             <h4 class="subtitle">غذای ایتالیایی</h4>
@@ -584,7 +584,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                             </div>
                             <div class="special-single special-two ">
                                 <figure>
-                                    <a href="#"><img src="<?php echo assetsURL()."/rtl/images/food/t2.jpg"?>" alt="special food"></a>
+                                    <a href="#"><img src="<?php echo assetsURL()."/images/food/t2.jpg"?>" alt="special food"></a>
                                     <figcaption>
                                         <div class="speacial-info">
                                             <h4 class="subtitle">غذای ایتالیایی</h4>
@@ -595,7 +595,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                             </div>
                             <div class="special-single special-three">
                                 <figure>
-                                    <a href="#"><img src="<?php echo assetsURL()."/rtl/images/food/t3.jpg"?>" alt="special food"></a>
+                                    <a href="#"><img src="<?php echo assetsURL()."/images/food/t3.jpg"?>" alt="special food"></a>
                                     <figcaption>
                                         <div class="speacial-info">
                                             <h4 class="subtitle">غذای ایتالیایی</h4>
@@ -606,7 +606,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                             </div>
                             <div class="special-single special-four">
                                 <figure>
-                                    <a href="#"><img src="<?php echo assetsURL()."/rtl/images/food/t4.jpg"?>" alt="special food"></a>
+                                    <a href="#"><img src="<?php echo assetsURL()."/images/food/t4.jpg"?>" alt="special food"></a>
                                     <figcaption>
                                         <div class="speacial-info">
                                             <h4 class="subtitle">غذای ایتالیایی</h4>
@@ -617,7 +617,7 @@ $placholder_search=Yii::t("default",$placholder_search);
                             </div>
                             <div class="special-single special-five">
                                 <figure>
-                                    <a href="#"><img src="<?php echo assetsURL()."/rtl/images/food/t5.jpg"?>" alt="special food"></a>
+                                    <a href="#"><img src="<?php echo assetsURL()."/images/food/t5.jpg"?>" alt="special food"></a>
                                     <figcaption>
                                         <div class="speacial-info">
                                             <h4 class="subtitle">غذای ایتالیایی</h4>

@@ -640,8 +640,7 @@ class StoreController extends CController
 	}
 	
 	public function actionMenu()
-	{		
-				
+	{
 		$data=$_GET;		
 		$current_merchant='';
 		if (isset($_SESSION['kr_merchant_id'])){
@@ -935,10 +934,20 @@ class StoreController extends CController
 	{
 		$this->render('paypal-init');
 	}
+
+    public function actionMellatInit()
+	{
+		$this->render('mellat-init');
+	}
 	
 	public function actionPaypalVerify()
 	{
 		$this->render('paypal-verify');
+	}
+
+	public function actionMellatVerify()
+	{
+		$this->render('mellat-verify');
 	}
 	
 	public function actionOrderHistory()

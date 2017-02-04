@@ -105,7 +105,7 @@ class AdminController extends CController
 			dump($data);
 		}
 		
-		/**add ons */     
+		/**add ons */
 		if (isset($data['addon'])){
 			Yii::import('application.extension.AddonExport.*');
 			$class=new $data['addon'];
@@ -119,7 +119,7 @@ class AdminController extends CController
 		/**add ons */     
 		
 		$class=new AjaxAdmin;
-	    $class->data=$data;	    
+	    $class->data=$data;
 	    if (method_exists($class,$data['action'])){
 	    	$class->$data['action']();	    
 	         echo $class->output();
@@ -165,6 +165,12 @@ class AdminController extends CController
 	{
 		$this->crumbsTitle=Yii::t("default","Paypal Settings");
 		$this->render('paypal-settings');
+	}
+
+	public function actionMellat()
+	{
+		$this->crumbsTitle=Yii::t("default","Mellat Settings");
+		$this->render('mellat-settings');
 	}
 	
 	public function actionSettings()

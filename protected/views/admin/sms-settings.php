@@ -48,6 +48,16 @@
 <ul>
 <li><?php 
 echo CHtml::radioButton('sms_provider',
+Yii::app()->functions->getOptionAdmin('sms_provider')=="smsir"?true:false
+,array(
+'class'=>"icheck",
+'value'=>"smsir"
+));
+echo "<span>".t("use sms.ir")."</span>";
+?>
+</li>
+<li><?php
+echo CHtml::radioButton('sms_provider',
 Yii::app()->functions->getOptionAdmin('sms_provider')=="twilio"?true:false
 ,array(
 'class'=>"icheck",
@@ -154,11 +164,51 @@ echo "<span>".t("use msg91")."</span>";
 
 <hr/>
 
+<h1 style="color: #bc0a1f;font-weight: bolder;">SmS<small>.ir</small></h1>
+
+<div class="uk-form-row">
+  <label class="uk-form-label"><?php echo Yii::t("default","Line Number")?></label>
+  <?php 
+  echo CHtml::textField('sms_line_number',
+  Yii::app()->functions->getOptionAdmin('sms_line_number')
+  ,array(
+    'class'=>"uk-form-width-large",
+    //'data-validation'=>"required"
+  ))
+  ?>
+</div>
+
+<div class="uk-form-row">
+  <label class="uk-form-label"><?php echo Yii::t("default","Username")?></label>
+  <?php 
+  echo CHtml::textField('sms_username',
+  Yii::app()->functions->getOptionAdmin('sms_username')
+  ,array(
+    'class'=>"uk-form-width-large",
+    //'data-validation'=>"required"
+  ))
+  ?>
+</div>
+
+<div class="uk-form-row">
+  <label class="uk-form-label"><?php echo Yii::t("default","Password")?></label>
+  <?php 
+  echo CHtml::textField('sms_password',
+  Yii::app()->functions->getOptionAdmin('sms_password')
+  ,array(
+    'class'=>"uk-form-width-large",
+    //'data-validation'=>"required"
+  ))
+  ?>
+</div>
+
+<hr/>
+
 <div class="twillio-logo"></div>
 
 <div class="uk-form-row">
   <label class="uk-form-label"><?php echo Yii::t("default","Sender ID")?></label>
-  <?php 
+  <?php
   echo CHtml::textField('sms_sender_id',
   Yii::app()->functions->getOptionAdmin('sms_sender_id')
   ,array(
@@ -170,7 +220,7 @@ echo "<span>".t("use msg91")."</span>";
 
 <div class="uk-form-row">
   <label class="uk-form-label"><?php echo Yii::t("default","Account SID")?></label>
-  <?php 
+  <?php
   echo CHtml::textField('sms_account_id',
   Yii::app()->functions->getOptionAdmin('sms_account_id')
   ,array(
@@ -182,7 +232,7 @@ echo "<span>".t("use msg91")."</span>";
 
 <div class="uk-form-row">
   <label class="uk-form-label"><?php echo Yii::t("default","AUTH Token")?></label>
-  <?php 
+  <?php
   echo CHtml::textField('sms_token',
   Yii::app()->functions->getOptionAdmin('sms_token')
   ,array(

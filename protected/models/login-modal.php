@@ -46,15 +46,16 @@
          <?php echo CHtml::hiddenField('action','clientLoginModal')?>
          <?php echo CHtml::hiddenField('do-action', isset($_GET['do-action'])?$_GET['do-action']:'' )?>
          <?php echo CHtml::hiddenField('rating', isset($_GET['rating'])?$_GET['rating']:'' )?>
+          <?php FunctionsV3::addCsrfToken(false);?>
          <h3><?php echo Yii::t("default","Log in to your account")?></h3>
          <div class="uk-form-row">
            <?php echo CHtml::textField('username','',
-            array('class'=>'uk-width-1-1','placeholder'=>Yii::t("default","Email"),
+            array('class'=>'uk-width-1-1 grey-fields full-width','placeholder'=>Yii::t("default","Email"),
            'data-validation'=>"required"))?>
          </div>
          <div class="uk-form-row">
          <?php echo CHtml::passwordField('password','',
-         array('class'=>'uk-width-1-1','placeholder'=>Yii::t("default","Password"),'data-validation'=>"required"))?>
+         array('class'=>'uk-width-1-1 grey-fields full-width','placeholder'=>Yii::t("default","Password"),'data-validation'=>"required"))?>
          </div>
          
          <?php if ( getOptionA('captcha_customer_login')==2):?>
@@ -62,11 +63,11 @@
          <?php endif;?>
          
          <div class="uk-form-row">
-         <input type="submit" value="<?php echo Yii::t("default","Login")?>" class="uk-button uk-width-1-1 uk-button-success">
+         <input type="submit" value="<?php echo Yii::t("default","Login")?>" class="green-button medium full-width uk-button uk-width-1-1 uk-button-success">
          </div>
       </form>      
             
-      <a href="javascript:;" class="back-link left"><i class="fa fa-angle-left"></i> <?php echo Yii::t("default","Back")?></a>      
+      <a href="javascript:;" class="back-link left"><?php echo Yii::t("default","Back")?> <i class="fa fa-angle-left"></i></a>
       <a href="javascript:;" class="forgot-pass-link right"><?php echo Yii::t("default","Forgot Password")?>?</a>      
       <div class="clear"></div>
       
@@ -75,17 +76,18 @@
  <div class="section-forgotpass">
     <form id="frm-modal-forgotpass" class="frm-modal-forgotpass uk-panel uk-panel-box uk-form" method="POST" onsubmit="return false;">
     <?php echo CHtml::hiddenField('action','forgotPassword')?>
-     <?php echo CHtml::hiddenField('do-action',$_GET['do-action'])?>     
+     <?php echo CHtml::hiddenField('do-action',$_GET['do-action'])?>
+        <?php FunctionsV3::addCsrfToken(false);?>
      <h3><?php echo Yii::t("default","Forgot Password")?></h3>
          
     <div class="uk-form-row">
        <?php echo CHtml::textField('username-email','',
-        array('class'=>'uk-width-1-1','placeholder'=>Yii::t("default","Email address"),
+        array('class'=>'uk-width-1-1 grey-fields full-width','placeholder'=>Yii::t("default","Email address"),
        'data-validation'=>"email"))?>
      </div>
          
     <div class="uk-form-row">
-      <input type="submit" value="<?php echo Yii::t("default","Retrieve Password")?>" class="uk-button uk-width-1-1 uk-button-success">
+      <input type="submit" value="<?php echo Yii::t("default","Retrieve Password")?>" class="green-button medium full-width uk-button uk-width-1-1 uk-button-success">
     </div>     
      
     </form>
@@ -98,6 +100,7 @@
  <div class="section3"> 
   <form id="form-signup" class="form-signup uk-panel uk-panel-box uk-form" method="POST" onsubmit="return false;">
     <?php echo CHtml::hiddenField('action','clientRegistrationModal')?>
+      <?php FunctionsV3::addCsrfToken(false);?>
     <?php 
     $verification=Yii::app()->functions->getOptionAdmin("website_enabled_mobile_verification");	    
     if ( $verification=="yes"){
@@ -109,28 +112,28 @@
      <h3><?php echo Yii::t("default","Sign up")?></h3>
      <div class="uk-form-row">
       <?php echo CHtml::textField('first_name','',array(
-       'class'=>'uk-width-1-1',
+       'class'=>'uk-width-1-1 grey-fields full-width',
        'placeholder'=>Yii::t("default","First Name"),
        'data-validation'=>"required"
       ))?>
      </div>
      <div class="uk-form-row">
       <?php echo CHtml::textField('last_name','',array(
-       'class'=>'uk-width-1-1',
+       'class'=>'uk-width-1-1 grey-fields full-width',
        'placeholder'=>Yii::t("default","Last Name"),
        'data-validation'=>"required"
       ))?>
      </div>
      <div class="uk-form-row">
       <?php echo CHtml::textField('contact_phone','',array(
-       'class'=>'uk-width-1-1 mobile_inputs',
+       'class'=>'uk-width-1-1 mobile_inputs grey-fields full-width',
        'placeholder'=>yii::t("default","Mobile"),
        'data-validation'=>"required"
       ))?>
      </div>
      <div class="uk-form-row">
       <?php echo CHtml::textField('email_address','',array(
-       'class'=>'uk-width-1-1',
+       'class'=>'uk-width-1-1 grey-fields full-width',
        'placeholder'=>yii::t("default","Email address"),
        'data-validation'=>"email"
       ))?>
@@ -143,7 +146,7 @@
                
      <div class="uk-form-row">
       <?php echo CHtml::passwordField('password','',array(
-       'class'=>'uk-width-1-1',
+       'class'=>'uk-width-1-1 grey-fields full-width',
        'placeholder'=>Yii::t("default","Password"),
        'data-validation'=>"required"
       ))?>
@@ -151,7 +154,7 @@
           
      <div class="uk-form-row">
       <?php echo CHtml::passwordField('cpassword','',array(
-       'class'=>'uk-width-1-1',
+       'class'=>'uk-width-1-1 grey-fields full-width',
        'placeholder'=>Yii::t("default","Confirm Password"),
        'data-validation'=>"required"       
       ))?>      
@@ -186,7 +189,7 @@
        
      
      <div class="uk-form-row">
-     <input type="submit" value="<?php echo Yii::t("default","Create Account") ?>" class="uk-button uk-width-1-1 uk-button-primary">
+     <input type="submit" value="<?php echo Yii::t("default","Create Account") ?>" class="orange-button medium full-width uk-button uk-width-1-1 uk-button-primary">
      </div>
   </form>
   <a href="javascript:;" class="back-link"><i class="fa fa-angle-left"></i> <?php echo Yii::t("default","Back")?></a>

@@ -840,59 +840,62 @@ class Functions extends CApplicationComponent
 	public function merchantMenu()
 	{
 							
-		$payment_list=array('visible'=>$this->hasMerchantAccess("payment-gateway"),'tag'=>'payment-gateway','label'=>'<i class="fa fa-usd"></i>'.Yii::t("default",'Payment Gateway'),
-                
-                   'itemOptions'=>array('class'=>''), 'items'=>array(
-                   array('visible'=>$this->hasMerchantAccess("pyp"),'tag'=>'paypal', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Paypal"),                    
-                   'url'=>array('merchant/paypalSettings')),                
-                   
-                   array('visible'=>$this->hasMerchantAccess("stp"),'tag'=>'stripe', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Stripe"),                    
-                   'url'=>array('merchant/stripeSettings')),                
-                   
-                   array('visible'=>$this->hasMerchantAccess("mcd"),'tag'=>'mercadopago', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Mercadopago"), 
-                   'url'=>array('merchant/mercadopagoSettings')),
-                   
-                   array('visible'=>$this->hasMerchantAccess("ide"),'tag'=>'ide', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Sisow"), 
-                   'url'=>array('merchant/sisowsettings')),
-                   
-                   array('visible'=>$this->hasMerchantAccess("payu"),'tag'=>'payu', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","PayUMoney"), 
-                   'url'=>array('merchant/payumoneysettings')),
-                   
-                   
-                   array('visible'=>$this->hasMerchantAccess("pys"),'tag'=>'pys', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","paysera"), 
-                   'url'=>array('merchant/payserasettings')),
-                   
-                   array('visible'=>$this->hasMerchantAccess("pyr"),'tag'=>'pyr', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Pay On Delivery"), 
-                   'url'=>array('merchant/payondelivery')),
-                   
-                   array('visible'=>$this->hasMerchantAccess("bcy"),'tag'=>'bcy', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Barclaycard"), 
-                   'url'=>array('merchant/barclay')),                   
-                   
-                   array('visible'=>$this->hasMerchantAccess("epy"),'tag'=>'epy', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","EpayBg"), 
-                   'url'=>array('merchant/epagbg')),                                       
-                   
-                   array('visible'=>$this->hasMerchantAccess("atz"),'tag'=>'atz', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Authorize.net"), 
-                   'url'=>array('merchant/authorize')),                                       
-                   
-                   array('visible'=>$this->hasMerchantAccess("obd"),'tag'=>'obd', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Offline Bank Deposit"), 
-                   'url'=>array('merchant/obd')),                                       
-                   
-                   array('visible'=>$this->hasMerchantAccess("obdreceive"),'tag'=>'obdreceive', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Receive Bank Deposit"), 
-                   'url'=>array('merchant/obdreceive')),                                                            
-                   
-                   array('visible'=>$this->hasMerchantAccess("btr"),'tag'=>'btr', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Braintree"), 
-                   'url'=>array('merchant/braintreesettings')),                                                            
-                   
-                   array('visible'=>$this->hasMerchantAccess("rzr"),'tag'=>'rzr', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Razorpay"), 
-                   'url'=>array('merchant/razor')),                                                            
-                   
-                   /*array('visible'=>$this->hasMerchantAccess("mol"),'tag'=>'mol', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Mollie"), 
-                   'url'=>array('merchant/mollie')),                                                            
-                   
-                   array('visible'=>$this->hasMerchantAccess("ip8"),'tag'=>'ip8', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Ipay88"), 
-                   'url'=>array('merchant/ipay88')),                                                            */
-                                                         
-                ));              
+//		$payment_list=array('visible'=>$this->hasMerchantAccess("payment-gateway"),'tag'=>'payment-gateway','label'=>'<i class="fa fa-usd"></i>'.Yii::t("default",'Payment Gateway'),
+//
+//                   'itemOptions'=>array('class'=>''), 'items'=>array(
+//                   array('visible'=>$this->hasMerchantAccess("mlt"),'tag'=>'mellat', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Mellat"),
+//                   'url'=>array('merchant/mellatSettings')),
+//
+//                    array('visible'=>$this->hasMerchantAccess("pyp"),'tag'=>'paypal', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Paypal"),
+//                        'url'=>array('merchant/paypalSettings')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("stp"),'tag'=>'stripe', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Stripe"),
+//                   'url'=>array('merchant/stripeSettings')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("mcd"),'tag'=>'mercadopago', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Mercadopago"),
+//                   'url'=>array('merchant/mercadopagoSettings')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("ide"),'tag'=>'ide', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Sisow"),
+//                   'url'=>array('merchant/sisowsettings')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("payu"),'tag'=>'payu', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","PayUMoney"),
+//                   'url'=>array('merchant/payumoneysettings')),
+//
+//
+//                   array('visible'=>$this->hasMerchantAccess("pys"),'tag'=>'pys', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","paysera"),
+//                   'url'=>array('merchant/payserasettings')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("pyr"),'tag'=>'pyr', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Pay On Delivery"),
+//                   'url'=>array('merchant/payondelivery')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("bcy"),'tag'=>'bcy', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Barclaycard"),
+//                   'url'=>array('merchant/barclay')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("epy"),'tag'=>'epy', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","EpayBg"),
+//                   'url'=>array('merchant/epagbg')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("atz"),'tag'=>'atz', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Authorize.net"),
+//                   'url'=>array('merchant/authorize')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("obd"),'tag'=>'obd', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Offline Bank Deposit"),
+//                   'url'=>array('merchant/obd')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("obdreceive"),'tag'=>'obdreceive', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Receive Bank Deposit"),
+//                   'url'=>array('merchant/obdreceive')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("btr"),'tag'=>'btr', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Braintree"),
+//                   'url'=>array('merchant/braintreesettings')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("rzr"),'tag'=>'rzr', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Razorpay"),
+//                   'url'=>array('merchant/razor')),
+//
+//                   /*array('visible'=>$this->hasMerchantAccess("mol"),'tag'=>'mol', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Mollie"),
+//                   'url'=>array('merchant/mollie')),
+//
+//                   array('visible'=>$this->hasMerchantAccess("ip8"),'tag'=>'ip8', 'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Ipay88"),
+//                   'url'=>array('merchant/ipay88')),                                                            */
+//
+//                ));
                               
               $fax_menu=array('visible'=>$this->hasMerchantAccess("fax"),'tag'=>'fax','label'=>'<i class="fa fa-fax"></i>'.Yii::t("default",'Fax'),      
                         
@@ -1343,7 +1346,11 @@ class Functions extends CApplicationComponent
                 
                 array('visible'=>$this->AA('paymentgateway'),'tag'=>'paymentgateway',
                 'label'=>'<i class="fa fa-usd"></i>'.Yii::t("default",'Payment Gateway'),
-                   'itemOptions'=>array('class'=>''), 'items'=>array(                   
+                   'itemOptions'=>array('class'=>''), 'items'=>array(
+
+					array('visible'=>$this->AA('mellat'),'tag'=>'mellat',
+						'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","mellat"),
+						'url'=>array('admin/mellat')),
                    
                    array('visible'=>$this->AA('paypalSettings'),
                    'tag'=>'paypalSettings','label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Paypal"), 
@@ -1399,8 +1406,8 @@ class Functions extends CApplicationComponent
                    
                    array('visible'=>$this->AA('razor'),'tag'=>'razor',
                    'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Razorpay"), 
-                   'url'=>array('admin/razor')),                             
-                   
+                   'url'=>array('admin/razor')),
+
                    /*array('visible'=>$this->AA('mollie'),'tag'=>'mollie',
                    'label'=>'<i class="fa fa-paypal"></i>'.Yii::t("default","Mollie"), 
                    'url'=>array('admin/mollie')),                             
@@ -4402,7 +4409,17 @@ $htm.='<div class="b uk-text-muted">'."$addon_raw_price ".ucwords(qTranslate($va
 		  	  $paypal_con['live']['action']='Sale';
 		  }
 		  return $paypal_con;
-    }	
+    }
+
+	public function getMellatConnection()
+    {
+        $mellat_con=array(
+            'terminal_num'=>yii::app()->functions->getOption('admin_mellat_terminal_num'),
+            'username'=>yii::app()->functions->getOption('admin_mellat_username'),
+            'password'=>yii::app()->functions->getOption('admin_mellat_password'),
+        );
+        return $mellat_con;
+    }
 
     public function getPaypalConnectionAdmin()
     {
@@ -6139,7 +6156,7 @@ $menu_html.="</li>";
     	$message=trim($message);
     	
     	$msg='';$raw='';
-    	$sms_provider=Yii::app()->functions->getOptionAdmin('sms_provider');    	
+    	$sms_provider=Yii::app()->functions->getOptionAdmin('sms_provider');
     	    	    	
     	//if ($sms_provider=="nexmo"){    
     	$sms_provider=strtolower($sms_provider);
@@ -6148,16 +6165,31 @@ $menu_html.="</li>";
     	        
     	switch ($sms_provider) {
     		
-    		case "smsglobal":
+    		case "smsir":
+				date_default_timezone_set('Asia/Tehran');
+				$client= new SoapClient('http://n.sms.ir/ws/SendReceive.asmx?wsdl');
+				$parameters['userName'] = getOptionA('sms_username');
+				$parameters['password'] = getOptionA('sms_password');
+				$parameters['mobileNos'] = array(doubleval($to));
+				$parameters['messages'] = array($message);
+				$parameters['lineNumber'] = getOptionA('sms_line_number');
+				$parameters['sendDateTime'] = date("Y-m-d")."T".date("H:i:s");
+				if ($client->SendMessageWithLineNumber($parameters))
+					$msg="process";
+				else $msg="Error";
+
+    			break;
+
+			case "smsglobal":
     			$abs_smsglobal=new SMSGlobal;
 				$abs_smsglobal->_debug=false;
 				$abs_smsglobal->_smsuser= getOptionA('smsglobal_username');
 				$abs_smsglobal->_smspass= getOptionA('smsglobal_password');
 				$abs_smsglobal->_sms_url="http://www.smsglobal.com/http-api.php";
 				$abs_smsglobal->_smssender= getOptionA('smsglobal_senderid');
-				if ($resp=$abs_smsglobal->sendSMS_HTTPOST($to,$message)){				
+				if ($resp=$abs_smsglobal->sendSMS_HTTPOST($to,$message)){
 					$msg="process";
-				} else $msg=$abs_smsglobal->get_error();			
+				} else $msg=$abs_smsglobal->get_error();
     			break;
     			
     		case "clickatell":
@@ -6993,7 +7025,7 @@ $menu_html.="</li>";
     
     public function translateDate($date='')
     {    	    	
-    	$translate=$this->dateTranslation();    	
+    	$translate=$this->dateTranslation();
     	foreach ($translate as $key=>$val) {    		
     		$date=str_replace($key,$val,$date);
     	}
@@ -8709,11 +8741,11 @@ $menu_html.="</li>";
     	}
     	if ( !empty($date)){    		
     		$date_f=Yii::app()->functions->getOptionAdmin("website_date_format");
-    		$time_f=Yii::app()->functions->getOptionAdmin("website_time_format");       		
+    		$time_f=Yii::app()->functions->getOptionAdmin("website_time_format");
     		if (!empty($date_f)){
     			if ( $time==TRUE){
-    			    $date_ouput = date("$date_f $time_f",strtotime($date));	
-    			} else $date_ouput = date("$date_f",strtotime($date));	    			
+    			    $date_ouput = JalaliDate::date("$date_f $time_f",strtotime($date),false);
+    			} else $date_ouput = JalaliDate::date("$date_f",strtotime($date),false);
     			return $this->translateDate($date_ouput);
     		} else {
     			if ( $time==TRUE){
@@ -8802,8 +8834,8 @@ $menu_html.="</li>";
 	/** NEW CODE ADDED FOR VERSION 2.1.1*/
 	
 	public function AA($tag='')
-	{		
-		if ( $access=$this->AAccess()){			
+	{
+		if ( $access=$this->AAccess()){
 			$tag=strtolower($tag);
             $access = array_map('strtolower', $access);            
 			if (in_array($tag,(array)$access)){
@@ -8815,7 +8847,7 @@ $menu_html.="</li>";
 	
 	public function AAccess()
 	{
-		$info=$this->getAdminInfo();		
+		$info=$this->getAdminInfo();
 		if (is_object($info)){
 			$access=!empty($info->user_access)?json_decode($info->user_access):false;
 			if ($access!=false){

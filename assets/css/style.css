@@ -110,7 +110,7 @@ Section Text:       15px/1.7 "Open Sans", arial, sans-serif;
 .white{ color: #fff !important; }
 .black{ color: #111 !important; }
 .color{ color: #e41919 !important; }
-.glass{ opacity: .5; };
+.glass{ opacity: .5; }
 .image-fullwidth img{
     width: 100%;
 }
@@ -2014,7 +2014,7 @@ a.logo:hover{
     border: 1px solid rgba(0,0,0, .25);
 }
 .main-nav .tooltip{
-    font-size: 12x;
+    font-size: 12px;
     text-transform: none;
     letter-spacing: 0;
 }
@@ -6702,7 +6702,7 @@ a.strip_list {
 }
 .cbx-special .special-area .special-single {
     float: left;
-    padding: 1rem;
+    padding: 10px;
 }
 .cbx-special .special-area .special-one {
     width: 50%;
@@ -6773,7 +6773,7 @@ a.strip_list {
     text-transform: uppercase;
 }
 .testimonial-section {
-	background-image: url("../images/testi-bg.jpg");
+	background-image: url("../images/eating.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
@@ -7307,6 +7307,8 @@ a.strip_list {
     font-weight: 300;
     font-family: Dosis,IRANSans, arial, sans-serif;
     text-transform: uppercase;
+}
+#home .search-wraps h1{
     max-height: 25px;
 }
 .search-wraps p, .search-wraps p a {
@@ -7341,9 +7343,8 @@ a.strip_list {
     font-size: 28px;
     position: absolute;
     right: 10px;
-    top: -1px;
+    top: -8px;
     color: #474d5d;
-    font-size: 15px;
 }
 .section .container + .video-wrap {
     z-index: 1;
@@ -7539,4 +7540,73 @@ a.strip_list {
     margin-top: 15px;
     line-height:23px;
     color: #777;
+}
+.date-picker-input{
+    direction: rtl;
+}
+.find-near-restaurant{
+    display: inline-block;
+    margin: 50px auto 0;
+    font-weight: bold;
+    text-shadow: 0 1px #000;
+}
+.find-near-restaurant .icon{
+    background: url("../images/point.svg") no-repeat center right;
+    background-size: 30px;
+    width: 30px;
+    height:30px;
+    margin-left: 7px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.login-btn-wrap{
+    width: 210px;
+    padding: 35px 0;
+}
+.login-btn-wrap .uk-button{
+    padding: 10px 0;
+    color: #fff;
+    border-radius: 3px;
+    width: 100px;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+}
+.login-btn-wrap .login-link{
+    background: #5cb85c;
+    margin-left: 5px;
+}
+.login-btn-wrap .signup-link{
+    background: #00a8e6;
+}
+.login-modal-wrap .uk-form-row{
+    margin-bottom: 15px;
+}
+.login-modal-wrap .back-link{
+    color: #f75d34;
+    font-size: 12px;
+}
+#form-signup .uk-text-muted{
+    font-size: 11px;
+    color: #666;
+}
+.intl-tel-input input,
+.intl-tel-input input[type="text"],
+.intl-tel-input input[type="tel"]{
+    padding-left: 10px;
+    padding-right: 48px;
+}
+.intl-tel-input .selected-flag{
+    padding: 0 8px 0 0;
+}
+.intl-tel-input .selected-flag .arrow{
+    right: auto;
+    left: 4px;
+}
+.intl-tel-input .country-list{
+    direction: ltr;
+    text-align: left;
+}
+.inner-nav ul li{
+    border:none;
 }

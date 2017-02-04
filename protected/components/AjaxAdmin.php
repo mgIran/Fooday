@@ -92,8 +92,8 @@ if (!class_exists('AjaxAdmin'))
 			       LIMIT 0,1
 			";
 			if ( $res=$DbExt->rst($stmt)){								
-				//Yii::app()->request->cookies['kr_user'] = new CHttpCookie('kr_user', json_encode($res));  		
-				
+				//Yii::app()->request->cookies['kr_user'] = new CHttpCookie('kr_user', json_encode($res));
+
 				//dump($res);
 				$_SESSION['kr_user']=json_encode($res);
 				//dump($_SESSION['kr_user']);
@@ -106,7 +106,7 @@ if (!class_exists('AjaxAdmin'))
 				);
 				$this->updateData("{{admin_user}}",$params,'admin_id',$res[0]['admin_id']);
 								
-				$_SESSION['kr_user_session']=$session_token;			
+				$_SESSION['kr_user_session']=$session_token;
 				
 	    		$this->msg=Yii::t("default","Login Successful");
 			} else $this->msg=Yii::t("default","Either username or password is invalid.");
@@ -2505,7 +2505,6 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    			$this->data['card_fee']=$card_fee;	    			
 	    		}
 	    		/** end card fee */
-	    		
 	    		Yii::app()->functions->displayOrderHTML($this->data,$_SESSION['kr_item']);
 	    		if ( Yii::app()->functions->code==1){
 	    			//dump("<h2>RESP</h2>");
@@ -4484,7 +4483,25 @@ $params['cart_tip_value']=isset($this->data['cart_tip_value'])?$this->data['cart
 	    	
 	    	$this->code=1;
 	    	$this->msg=Yii::t("default","Setting saved");
-		}	
+		}
+
+		public function saveAdminMellatSettings()
+		{
+		    Yii::app()->functions->updateOptionAdmin("admin_enabled_mellat",
+	    	isset($this->data['admin_enabled_mellat'])?$this->data['admin_enabled_mellat']:'');
+
+	    	Yii::app()->functions->updateOptionAdmin("admin_mellat_terminal_num",
+	    	isset($this->data['admin_mellat_terminal_num'])?$this->data['admin_mellat_terminal_num']:'' );
+
+	    	Yii::app()->functions->updateOptionAdmin("admin_mellat_username",
+	    	isset($this->data['admin_mellat_username'])?$this->data['admin_mellat_username']:'' );
+
+	    	Yii::app()->functions->updateOptionAdmin("admin_mellat_password",
+	    	isset($this->data['admin_mellat_password'])?$this->data['admin_mellat_password']:'' );
+
+	    	$this->code=1;
+	    	$this->msg=Yii::t("default","Setting saved");
+		}
 		
 		public function adminSettings()
 		{			
@@ -7069,6 +7086,15 @@ $country=array_key_exists($val['country_code'],(array)$country_list)?$country_li
 		
 		public function smsSettings()
 		{						
+			Yii::app()->functions->updateOptionAdmin("sms_line_number",
+	    	isset($this->data['sms_line_number'])?$this->data['sms_line_number']:'');
+
+			Yii::app()->functions->updateOptionAdmin("sms_username",
+	    	isset($this->data['sms_username'])?$this->data['sms_username']:'');
+
+			Yii::app()->functions->updateOptionAdmin("sms_password",
+	    	isset($this->data['sms_password'])?$this->data['sms_password']:'');
+
 			Yii::app()->functions->updateOptionAdmin("sms_sender_id",
 	    	isset($this->data['sms_sender_id'])?$this->data['sms_sender_id']:'');
 	    	

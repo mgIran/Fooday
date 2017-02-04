@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : local
-Source Server Version : 50616
+Source Server         : localhost
+Source Server Version : 50617
 Source Host           : localhost:3306
-Source Database       : res_test
+Source Database       : fooday
 
 Target Server Type    : MYSQL
-Target Server Version : 50616
+Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2017-01-01 11:32:01
+Date: 2017-02-02 12:55:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,11 +33,12 @@ CREATE TABLE `mt_address_book` (
   `date_modified` datetime NOT NULL,
   `ip_address` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_address_book
 -- ----------------------------
+INSERT INTO `mt_address_book` VALUES ('1', '1', 'Qom', ' Qom Province', ' Iran', '37288', 'tandis', 'Ira', '2', '2017-01-30 16:37:58', '0000-00-00 00:00:00', '::1');
 
 -- ----------------------------
 -- Table structure for mt_admin_user
@@ -65,7 +66,7 @@ CREATE TABLE `mt_admin_user` (
 -- ----------------------------
 -- Records of mt_admin_user
 -- ----------------------------
-INSERT INTO `mt_admin_user` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70', '', '', '', '2016-11-30 00:33:11', '2016-11-30 19:00:10', '::1', '2', '', '', '', '0000-00-00 00:00:00', '[\"autologin\",\"dashboard\",\"merchant\",\"sponsoredMerchantList\",\"packages\",\"Cuisine\",\"dishes\",\"OrderStatus\",\"settings\",\"commisionsettings\",\"voucher\",\"merchantcommission\",\"withdrawal\",\"incomingwithdrawal\",\"withdrawalsettings\",\"emailsettings\",\"emailtpl\",\"customPage\",\"Ratings\",\"ContactSettings\",\"SocialSettings\",\"ManageCurrency\",\"ManageLanguage\",\"Seo\",\"analytics\",\"customerlist\",\"subscriberlist\",\"reviews\",\"bankdeposit\",\"paymentgatewaysettings\",\"paymentgateway\",\"paypalSettings\",\"stripeSettings\",\"mercadopagoSettings\",\"sisowsettings\",\"payumonenysettings\",\"obdsettings\",\"payserasettings\",\"payondelivery\",\"barclay\",\"epaybg\",\"authorize\",\"sms\",\"smsSettings\",\"smsPackage\",\"smstransaction\",\"smslogs\",\"fax\",\"faxtransaction\",\"faxpackage\",\"faxlogs\",\"faxsettings\",\"reports\",\"rptMerchantReg\",\"rptMerchantPayment\",\"rptMerchanteSales\",\"rptmerchantsalesummary\",\"rptbookingsummary\",\"userList\"]\n');
+INSERT INTO `mt_admin_user` VALUES ('1', 'rahbod', '81dc9bdb52d04dc20036dbd8313ed055', 'گروه نرم افزاری', 'رهبد', '', '2016-11-30 00:33:11', '2017-01-28 16:19:24', '::1', '2', 'info@rahbod.com', '', '14945658507837ec5754f503cfaaee0929fd48974e7', '2017-02-02 10:50:31', '[\"autologin\",\"dashboard\",\"merchant\",\"sponsoredMerchantList\",\"packages\",\"Cuisine\",\"dishes\",\"OrderStatus\",\"settings\",\"commisionsettings\",\"voucher\",\"merchantcommission\",\"withdrawal\",\"incomingwithdrawal\",\"withdrawalsettings\",\"emailsettings\",\"emailtpl\",\"customPage\",\"Ratings\",\"ContactSettings\",\"SocialSettings\",\"ManageCurrency\",\"ManageLanguage\",\"Seo\",\"analytics\",\"customerlist\",\"subscriberlist\",\"reviews\",\"bankdeposit\",\"paymentgatewaysettings\",\"paymentgateway\",\"mellat\",\"paypalSettings\",\"stripeSettings\",\"mercadopagoSettings\",\"sisowsettings\",\"payumonenysettings\",\"obdsettings\",\"payserasettings\",\"payondelivery\",\"barclay\",\"epaybg\",\"authorize\",\"sms\",\"smsSettings\",\"smsPackage\",\"smstransaction\",\"smslogs\",\"fax\",\"faxtransaction\",\"faxpackage\",\"faxlogs\",\"faxsettings\",\"reports\",\"rptMerchantReg\",\"rptMerchantPayment\",\"rptMerchanteSales\",\"rptmerchantsalesummary\",\"rptbookingsummary\",\"userList\"]');
 
 -- ----------------------------
 -- Table structure for mt_bank_deposit
@@ -132,8 +133,9 @@ CREATE TABLE `mt_bookingtable` (
   `date_modified` datetime NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'pending',
   `viewed` int(1) NOT NULL DEFAULT '1',
+  `client_id` int(14) NOT NULL,
   PRIMARY KEY (`booking_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_bookingtable
@@ -159,12 +161,14 @@ CREATE TABLE `mt_category` (
   `dish` text NOT NULL,
   `category_name_trans` text NOT NULL,
   `category_description_trans` text NOT NULL,
+  `parent_cat_id` int(14) NOT NULL,
   PRIMARY KEY (`cat_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_category
 -- ----------------------------
+INSERT INTO `mt_category` VALUES ('1', '1', 'ایرانی', 'غذای های خوشمزه ایرانی', '1485595420-3.jpg', 'publish', '0', '2017-01-28T12:53:44+03:30', '', '::1', '1', '', '', '', '', '0');
 
 -- ----------------------------
 -- Table structure for mt_client
@@ -195,12 +199,16 @@ CREATE TABLE `mt_client` (
   `mobile_verification_date` datetime NOT NULL,
   `custom_field1` varchar(255) NOT NULL,
   `custom_field2` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `email_verification_code` varchar(14) NOT NULL,
+  `is_guest` int(1) NOT NULL DEFAULT '2',
   PRIMARY KEY (`client_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_client
 -- ----------------------------
+INSERT INTO `mt_client` VALUES ('1', 'web', 'مسعود', 'قراگوزلو', 'gharagozlu.masoud@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', '', '', 'tandis', '+989373252746', '', '2017-01-28 13:00:39', '0000-00-00 00:00:00', '2017-02-02 12:06:53', '::1', 'active', '', '0', '0000-00-00 00:00:00', '', '', '', '', '2');
 
 -- ----------------------------
 -- Table structure for mt_client_cc
@@ -257,32 +265,33 @@ CREATE TABLE `mt_cuisine` (
   `date_created` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   `ip_address` varchar(50) NOT NULL,
+  `cuisine_name_trans` text NOT NULL,
   PRIMARY KEY (`cuisine_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_cuisine
 -- ----------------------------
-INSERT INTO `mt_cuisine` VALUES ('1', 'American', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('2', 'Deli', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('3', 'Indian', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('4', 'Mediterranean', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('5', 'Sandwiches', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('6', 'Barbeque', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('7', 'Diner', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('8', 'Italian', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('9', 'Mexican', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('10', 'Sushi', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('11', 'Burgers', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('12', 'Greek', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('13', 'Japanese', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('14', 'Middle Eastern', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('15', 'Thai', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('16', 'Chinese', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('17', 'Healthy', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('18', 'Korean', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('19', 'Pizza', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_cuisine` VALUES ('20', 'Vegetarian', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
+INSERT INTO `mt_cuisine` VALUES ('1', 'American', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('2', 'Deli', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('3', 'Indian', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('4', 'Mediterranean', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('5', 'Sandwiches', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('6', 'Barbeque', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('7', 'Diner', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('8', 'Italian', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('9', 'Mexican', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('10', 'Sushi', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('11', 'Burgers', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('12', 'Greek', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('13', 'Japanese', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('14', 'Middle Eastern', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('15', 'Thai', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('16', 'Chinese', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('17', 'Healthy', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('18', 'Korean', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('19', 'Pizza', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
+INSERT INTO `mt_cuisine` VALUES ('20', 'Vegetarian', '0', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1', '');
 
 -- ----------------------------
 -- Table structure for mt_currency
@@ -305,7 +314,7 @@ INSERT INTO `mt_currency` VALUES ('CAD', '&#36;', '2016-11-30 00:33:07', '0000-0
 INSERT INTO `mt_currency` VALUES ('CNY', '&yen;', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
 INSERT INTO `mt_currency` VALUES ('EUR', '&euro;', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
 INSERT INTO `mt_currency` VALUES ('HKD', '&#36;', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
-INSERT INTO `mt_currency` VALUES ('IRR', 'ریال', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '::1');
+INSERT INTO `mt_currency` VALUES ('IRR', 'ریال', '0000-00-00 00:00:00', '2017-01-28 14:11:05', '::1');
 INSERT INTO `mt_currency` VALUES ('JPY', '&yen;', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
 INSERT INTO `mt_currency` VALUES ('MXN', '&#36;', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
 INSERT INTO `mt_currency` VALUES ('MYR', '&#82;&#77;', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
@@ -485,11 +494,13 @@ CREATE TABLE `mt_item` (
   `not_available` int(1) NOT NULL DEFAULT '1',
   `gallery_photo` text NOT NULL,
   PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_item
 -- ----------------------------
+INSERT INTO `mt_item` VALUES ('1', '1', 'قرمه سبزی', 'خوشمزه ترین غذای ایرانی که از دیرباز توسط کدبانو های ایرانی پخته میشد<br>', 'publish', '[\"1\"]', '\"\"', '', '', '50', '', '', '1485595529-avayeshahir.jpg', '0', '0', '2017-01-28 12:56:43', '2017-01-28 13:55:59', '::1', '', '0', '2', '', '', '', '', '', '2', '1', '[\"1485595535-eE1cO1466465581.jpg\",\"1485595538-com.botick.app2.jpg\"]');
+INSERT INTO `mt_item` VALUES ('2', '1', 'قیمه', 'یکی از غذاهای ایرانی<br>', 'publish', '[\"1\"]', '\"\"', '', '', '100', '', '', '1485873138-hyperapps-mobile.jpg', '0', '0', '2017-01-31 18:03:24', '0000-00-00 00:00:00', '::1', '', '0', '2', '', '', '', '', '', '1', '1', '[\"1485873163-com.botick.app2.jpg\"]');
 
 -- ----------------------------
 -- Table structure for mt_languages
@@ -506,13 +517,13 @@ CREATE TABLE `mt_languages` (
   `status` varchar(50) NOT NULL,
   `ip_address` varchar(50) NOT NULL,
   PRIMARY KEY (`lang_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_languages
 -- ----------------------------
-INSERT INTO `mt_languages` VALUES ('1', 'ES', 'Spanish', '1480463208-spanish.php', '2', '2016-11-30 03:17:12', '0000-00-00 00:00:00', 'publish', '::1');
-INSERT INTO `mt_languages` VALUES ('2', 'IR', 'Persian', '1480504467-mt_language_file.php', '2', '2016-11-30 14:44:32', '0000-00-00 00:00:00', 'publish', '::1');
+INSERT INTO `mt_languages` VALUES ('1', 'ES', 'Spanish', '1480463208-spanish.php', '2', '2016-11-30 03:17:12', '2017-01-12 12:49:56', 'draft', '::1');
+INSERT INTO `mt_languages` VALUES ('3', 'IR', 'Persian', '1485935544-mt_language_file.php', '2', '2017-01-02 10:10:52', '2017-02-01 11:22:27', 'publish', '::1');
 
 -- ----------------------------
 -- Table structure for mt_merchant
@@ -563,11 +574,12 @@ CREATE TABLE `mt_merchant` (
   `session_token` varchar(255) NOT NULL,
   `commision_type` varchar(50) NOT NULL DEFAULT 'percentage',
   PRIMARY KEY (`merchant_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_merchant
 -- ----------------------------
+INSERT INTO `mt_merchant` VALUES ('1', 'slug', 'تست', '123456', 'نام مخاطب', '12345', 'info@rahbod.com', 'IR', 'سی متری کیوانفر', 'قم', 'قم', '37188', '[\"8\"]', '1', '2', '', 'rahbod', '81dc9bdb52d04dc20036dbd8313ed055', '', '2bc1ed4678d19ca824e10bb6b350e6ee', 'active', '2017-01-25 18:35:48', '2017-01-28 12:47:22', '0000-00-00 00:00:00', '2017-01-31 18:00:29', '::1', '1', '9900.00000', '2017-02-18', '1', '1', '2', '1', '0000-00-00', '', '0', '0000-00-00 00:00:00', '0', '1', '0.00000', '', '34769852341837ec5754f503cfaaee0929fd48974e7', 'fixed');
 
 -- ----------------------------
 -- Table structure for mt_merchant_cc
@@ -666,12 +678,12 @@ CREATE TABLE `mt_option` (
   `option_value` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `merchant_id` (`merchant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_option
 -- ----------------------------
-INSERT INTO `mt_option` VALUES ('1', '0', 'website_title', 'Iranian3.2');
+INSERT INTO `mt_option` VALUES ('1', '0', 'website_title', 'Fooday');
 INSERT INTO `mt_option` VALUES ('2', '0', 'admin_country_set', 'IR');
 INSERT INTO `mt_option` VALUES ('3', '0', 'website_address', 'Qom');
 INSERT INTO `mt_option` VALUES ('4', '0', 'website_contact_phone', '6574422');
@@ -679,10 +691,10 @@ INSERT INTO `mt_option` VALUES ('5', '0', 'website_contact_email', 'yusef.mobash
 INSERT INTO `mt_option` VALUES ('6', '0', 'admin_currency_set', 'IRR');
 INSERT INTO `mt_option` VALUES ('7', '0', 'website_disbaled_auto_cart', '');
 INSERT INTO `mt_option` VALUES ('8', '0', 'website_enabled_mobile_verification', '');
-INSERT INTO `mt_option` VALUES ('9', '0', 'website_date_picker_format', 'yy-mm-dd');
+INSERT INTO `mt_option` VALUES ('9', '0', 'website_date_picker_format', 'YYYY/MM/DD');
 INSERT INTO `mt_option` VALUES ('10', '0', 'website_time_picker_format', '24');
 INSERT INTO `mt_option` VALUES ('11', '0', 'website_date_format', 'Y/m/d');
-INSERT INTO `mt_option` VALUES ('12', '0', 'website_time_format', 'H:i:s');
+INSERT INTO `mt_option` VALUES ('12', '0', 'website_time_format', 'H:m:s');
 INSERT INTO `mt_option` VALUES ('13', '0', 'merchant_sigup_status', 'pending');
 INSERT INTO `mt_option` VALUES ('14', '0', 'merchant_email_verification', '');
 INSERT INTO `mt_option` VALUES ('15', '0', 'merchant_payment_enabled', '');
@@ -711,7 +723,7 @@ INSERT INTO `mt_option` VALUES ('37', '0', 'disabled_subscription', '');
 INSERT INTO `mt_option` VALUES ('38', '0', 'disabled_featured_merchant', '');
 INSERT INTO `mt_option` VALUES ('39', '0', 'merchant_days_can_edit_status', '');
 INSERT INTO `mt_option` VALUES ('40', '0', 'disabled_website_ordering', '');
-INSERT INTO `mt_option` VALUES ('41', '0', 'admin_activated_menu', '');
+INSERT INTO `mt_option` VALUES ('41', '0', 'admin_activated_menu', '1');
 INSERT INTO `mt_option` VALUES ('42', '0', 'website_hide_foodprice', '');
 INSERT INTO `mt_option` VALUES ('43', '0', 'disabled_cc_management', '');
 INSERT INTO `mt_option` VALUES ('44', '0', 'merchant_reg_abn', '');
@@ -733,7 +745,7 @@ INSERT INTO `mt_option` VALUES ('59', '0', 'website_enabled_rcpt', '');
 INSERT INTO `mt_option` VALUES ('60', '0', 'website_receipt_logo', '');
 INSERT INTO `mt_option` VALUES ('61', '0', 'disabled_cart_sticky', '');
 INSERT INTO `mt_option` VALUES ('62', '0', 'search_result_bydistance', '');
-INSERT INTO `mt_option` VALUES ('63', '0', 'google_geo_api_key', 'AIzaSyAiKycGx9fAqmw5l9K1f7pnjsP6bq1wfNI');
+INSERT INTO `mt_option` VALUES ('63', '0', 'google_geo_api_key', 'AIzaSyCEL-MhyI9wFAM0uDp2o3R-t_muCl2nS5w');
 INSERT INTO `mt_option` VALUES ('64', '0', 'website_enabled_map_address', '');
 INSERT INTO `mt_option` VALUES ('65', '0', 'client_custom_field_name1', '');
 INSERT INTO `mt_option` VALUES ('66', '0', 'client_custom_field_name2', '');
@@ -762,14 +774,94 @@ INSERT INTO `mt_option` VALUES ('88', '0', 'mobilelogo', '');
 INSERT INTO `mt_option` VALUES ('89', '0', 'theme_enabled_email_verification', '');
 INSERT INTO `mt_option` VALUES ('90', '0', 'google_distance_method', 'straight_line');
 INSERT INTO `mt_option` VALUES ('91', '0', 'google_use_curl', '2');
-INSERT INTO `mt_option` VALUES ('92', '0', 'admin_menu_allowed_merchant', '');
+INSERT INTO `mt_option` VALUES ('92', '0', 'admin_menu_allowed_merchant', '2');
 INSERT INTO `mt_option` VALUES ('93', '0', 'show_language', '');
-INSERT INTO `mt_option` VALUES ('94', '0', 'default_language', '2');
-INSERT INTO `mt_option` VALUES ('95', '0', 'set_lang_id', '[\\\"-9999\\\",\\\"2\\\"]');
+INSERT INTO `mt_option` VALUES ('94', '0', 'default_language', '3');
+INSERT INTO `mt_option` VALUES ('95', '0', 'set_lang_id', '[\\\"3\\\"]');
 INSERT INTO `mt_option` VALUES ('96', '0', 'enabled_multiple_translation', '');
-INSERT INTO `mt_option` VALUES ('97', '0', 'default_language_backend', '2');
+INSERT INTO `mt_option` VALUES ('97', '0', 'default_language_backend', '3');
 INSERT INTO `mt_option` VALUES ('98', '0', 'show_language_backend', '');
-INSERT INTO `mt_option` VALUES ('99', '0', 'paymentgateway', '[\\\"pyp\\\"]');
+INSERT INTO `mt_option` VALUES ('99', '0', 'paymentgateway', '[\\\"mlt\\\"]');
+INSERT INTO `mt_option` VALUES ('100', '0', 'social_flag', '');
+INSERT INTO `mt_option` VALUES ('101', '0', 'fb_flag', '');
+INSERT INTO `mt_option` VALUES ('102', '0', 'fb_app_id', '');
+INSERT INTO `mt_option` VALUES ('103', '0', 'fb_app_secret', '');
+INSERT INTO `mt_option` VALUES ('104', '0', 'admin_fb_page', 'http://facebook.com/fooday');
+INSERT INTO `mt_option` VALUES ('105', '0', 'admin_twitter_page', 'http://twitter.com/fooday');
+INSERT INTO `mt_option` VALUES ('106', '0', 'admin_google_page', 'http://plus.google.com/fooday');
+INSERT INTO `mt_option` VALUES ('107', '0', 'admin_merchant_share', '');
+INSERT INTO `mt_option` VALUES ('108', '0', 'google_client_id', '');
+INSERT INTO `mt_option` VALUES ('109', '0', 'google_client_secret', '');
+INSERT INTO `mt_option` VALUES ('110', '0', 'google_client_redirect_ulr', 'http://localhost/fooday/store/GoogleLogin');
+INSERT INTO `mt_option` VALUES ('111', '0', 'google_login_enabled', '');
+INSERT INTO `mt_option` VALUES ('112', '0', 'default_share_text', '');
+INSERT INTO `mt_option` VALUES ('113', '0', 'admin_intagram_page', 'http://instagram.com/fooday');
+INSERT INTO `mt_option` VALUES ('114', '0', 'admin_youtube_url', '');
+INSERT INTO `mt_option` VALUES ('115', '1', 'merchant_switch_master_cod', '');
+INSERT INTO `mt_option` VALUES ('116', '1', 'merchant_switch_master_ccr', '');
+INSERT INTO `mt_option` VALUES ('117', '1', 'merchant_switch_master_pyr', '');
+INSERT INTO `mt_option` VALUES ('118', '1', 'merchant_latitude', '');
+INSERT INTO `mt_option` VALUES ('119', '1', 'merchant_longtitude', '');
+INSERT INTO `mt_option` VALUES ('120', '0', 'admin_commission_enabled', 'yes');
+INSERT INTO `mt_option` VALUES ('121', '0', 'admin_disabled_membership', '');
+INSERT INTO `mt_option` VALUES ('122', '0', 'admin_commision_percent', '70');
+INSERT INTO `mt_option` VALUES ('123', '0', 'admin_vat_no', '');
+INSERT INTO `mt_option` VALUES ('124', '0', 'admin_vat_percent', '');
+INSERT INTO `mt_option` VALUES ('125', '0', 'total_commission_status', '[\\\"paid\\\"]');
+INSERT INTO `mt_option` VALUES ('126', '0', 'admin_commision_ontop', '');
+INSERT INTO `mt_option` VALUES ('127', '0', 'admin_commision_type', 'percentage');
+INSERT INTO `mt_option` VALUES ('128', '0', 'admin_include_merchant_cod', '');
+INSERT INTO `mt_option` VALUES ('129', '0', 'admin_exclude_cod_balance', '');
+INSERT INTO `mt_option` VALUES ('130', '0', 'admin_disabled_membership_signup', '');
+INSERT INTO `mt_option` VALUES ('131', '0', 'admin_enabled_mellat', '');
+INSERT INTO `mt_option` VALUES ('132', '0', 'admin_mellat_terminal_num', '1234');
+INSERT INTO `mt_option` VALUES ('133', '0', 'admin_mellat_username', 'fooday');
+INSERT INTO `mt_option` VALUES ('134', '0', 'admin_mellat_password', '1234567890');
+INSERT INTO `mt_option` VALUES ('135', '0', 'sms_sender_id', '');
+INSERT INTO `mt_option` VALUES ('136', '0', 'sms_account_id', '');
+INSERT INTO `mt_option` VALUES ('137', '0', 'sms_token', '');
+INSERT INTO `mt_option` VALUES ('138', '0', 'mechant_sms_enabled', '');
+INSERT INTO `mt_option` VALUES ('139', '0', 'sms_provider', 'smsir');
+INSERT INTO `mt_option` VALUES ('140', '0', 'nexmo_sender_id', '');
+INSERT INTO `mt_option` VALUES ('141', '0', 'nexmo_key', '');
+INSERT INTO `mt_option` VALUES ('142', '0', 'nexmo_secret', '');
+INSERT INTO `mt_option` VALUES ('143', '0', 'nexmo_use_curl', '');
+INSERT INTO `mt_option` VALUES ('144', '0', 'privatesms_username', '');
+INSERT INTO `mt_option` VALUES ('145', '0', 'privatesms_password', '');
+INSERT INTO `mt_option` VALUES ('146', '0', 'privatesms_sender', '');
+INSERT INTO `mt_option` VALUES ('147', '0', 'clickatel_user', '');
+INSERT INTO `mt_option` VALUES ('148', '0', 'clickatel_password', '');
+INSERT INTO `mt_option` VALUES ('149', '0', 'clickatel_api_id', '');
+INSERT INTO `mt_option` VALUES ('150', '0', 'clickatel_use_curl', '');
+INSERT INTO `mt_option` VALUES ('151', '0', 'nexmo_use_unicode', '');
+INSERT INTO `mt_option` VALUES ('152', '0', 'clickatel_use_unicode', '');
+INSERT INTO `mt_option` VALUES ('153', '0', 'clickatel_sender', '');
+INSERT INTO `mt_option` VALUES ('154', '0', 'mechant_sms_purchase_disabled', '');
+INSERT INTO `mt_option` VALUES ('155', '0', 'bhashsms_user', '');
+INSERT INTO `mt_option` VALUES ('156', '0', 'bhashsms_pass', '');
+INSERT INTO `mt_option` VALUES ('157', '0', 'bhashsms_senderid', '');
+INSERT INTO `mt_option` VALUES ('158', '0', 'bhashsms_smstype', 'normal');
+INSERT INTO `mt_option` VALUES ('159', '0', 'bhashsms_priority', 'ndnd');
+INSERT INTO `mt_option` VALUES ('160', '0', 'bhashsms_use_curl', '');
+INSERT INTO `mt_option` VALUES ('161', '0', 'smsglobal_senderid', '');
+INSERT INTO `mt_option` VALUES ('162', '0', 'smsglobal_username', '');
+INSERT INTO `mt_option` VALUES ('163', '0', 'smsglobal_password', '');
+INSERT INTO `mt_option` VALUES ('164', '0', 'swift_accountkey', '');
+INSERT INTO `mt_option` VALUES ('165', '0', 'swift_usecurl', '');
+INSERT INTO `mt_option` VALUES ('166', '0', 'solutionsinfini_apikey', '');
+INSERT INTO `mt_option` VALUES ('167', '0', 'solutionsinfini_usecurl', '');
+INSERT INTO `mt_option` VALUES ('168', '0', 'solutionsinfini_useunicode', '');
+INSERT INTO `mt_option` VALUES ('169', '0', 'solutionsinfini_sender', '');
+INSERT INTO `mt_option` VALUES ('170', '0', 'plivo_auth_id', '');
+INSERT INTO `mt_option` VALUES ('171', '0', 'plivo_auth_token', '');
+INSERT INTO `mt_option` VALUES ('172', '0', 'plivo_sender_number', '');
+INSERT INTO `mt_option` VALUES ('173', '0', 'msg91_authkey', '');
+INSERT INTO `mt_option` VALUES ('174', '0', 'msg91_senderid', '');
+INSERT INTO `mt_option` VALUES ('175', '0', 'msg91_unicode', '');
+INSERT INTO `mt_option` VALUES ('176', '0', 'msg91_route', 'default');
+INSERT INTO `mt_option` VALUES ('177', '0', 'sms_line_number', '50002015898697');
+INSERT INTO `mt_option` VALUES ('178', '0', 'sms_username', '09336867861');
+INSERT INTO `mt_option` VALUES ('179', '0', 'sms_password', 'asasas');
 
 -- ----------------------------
 -- Table structure for mt_order
@@ -815,14 +907,23 @@ CREATE TABLE `mt_order` (
   `card_fee` float(14,4) NOT NULL,
   `donot_apply_tax_delivery` int(1) NOT NULL DEFAULT '1',
   `order_locked` int(1) NOT NULL DEFAULT '1',
+  `request_from` varchar(10) NOT NULL DEFAULT 'web',
+  `mobile_cart_details` text NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `merchant_id` (`merchant_id`),
   KEY `client_id` (`client_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_order
 -- ----------------------------
+INSERT INTO `mt_order` VALUES ('1', '1', '1', '[{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"1\",\"price\":\"-50\",\"qty\":\"1\",\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"2\",\"sub_item\":\"\"}]', 'delivery', 'mlt', '50.0000', '0.0000', '0.0000', '50.0000', 'initial_order', '0', '1', '0.0000', '2017-01-30', '14:15', '', '', '', '0.0000', '', '0', '2017-01-30 16:37:58', '0000-00-00 00:00:00', '::1', '0.0000', '', '0.00000', '0.00000', '0.0000', '0.0000', '2', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1', '1', 'web', '');
+INSERT INTO `mt_order` VALUES ('2', '1', '1', '[{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"1\",\"price\":\"-50\",\"qty\":\"1\",\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"2\",\"sub_item\":\"\"}]', 'delivery', 'mlt', '50.0000', '0.0000', '0.0000', '50.0000', 'initial_order', '0', '1', '0.0000', '2017-01-30', '17:38', '1', '', '', '0.0000', '', '0', '2017-01-30 16:43:20', '0000-00-00 00:00:00', '::1', '0.0000', '', '0.00000', '0.00000', '0.0000', '0.0000', '2', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1', '1', 'web', '');
+INSERT INTO `mt_order` VALUES ('3', '1', '1', '[{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"1\",\"price\":\"-50\",\"qty\":\"1\",\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"2\",\"sub_item\":\"\"}]', 'delivery', 'mlt', '50.0000', '0.0000', '0.0000', '50.0000', 'initial_order', '0', '1', '0.0000', '2017-01-30', '16:43', '', '', '', '0.0000', '', '0', '2017-01-30 16:51:40', '0000-00-00 00:00:00', '::1', '0.0000', '', '0.00000', '0.00000', '0.0000', '0.0000', '2', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1', '1', 'web', '');
+INSERT INTO `mt_order` VALUES ('4', '1', '1', '[{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"1\",\"price\":\"-50\",\"qty\":\"1\",\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"2\",\"sub_item\":\"\"}]', 'delivery', 'mlt', '50.0000', '0.0000', '0.0000', '50.0000', 'initial_order', '0', '1', '0.0000', '2017-01-30', '20:01', '', '', '', '0.0000', '', '0', '2017-01-30 20:26:23', '0000-00-00 00:00:00', '::1', '0.0000', '', '0.00000', '0.00000', '0.0000', '0.0000', '2', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1', '1', 'web', '');
+INSERT INTO `mt_order` VALUES ('5', '1', '1', '[{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"1\",\"price\":\"-50\",\"qty\":\"1\",\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"2\",\"sub_item\":\"\"}]', 'delivery', 'mlt', '50.0000', '0.0000', '0.0000', '50.0000', 'initial_order', '0', '1', '0.0000', '2017-01-30', '20:27', '', '', '', '0.0000', '', '0', '2017-01-30 20:28:17', '0000-00-00 00:00:00', '::1', '0.0000', '', '0.00000', '0.00000', '0.0000', '0.0000', '2', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1', '1', 'web', '');
+INSERT INTO `mt_order` VALUES ('6', '1', '1', '[{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"1\",\"price\":\"-50\",\"qty\":\"1\",\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"2\",\"sub_item\":\"\"},{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"2\",\"price\":\"-100\",\"qty\":\"1\",\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"1\",\"sub_item\":\"\"}]', 'delivery', 'mlt', '150.0000', '0.0000', '0.0000', '150.0000', 'paid', '0', '1', '0.0000', '2017-01-31', '18:14', '', '', '', '0.0000', '', '0', '2017-01-31 18:15:38', '0000-00-00 00:00:00', '::1', '0.0000', '', '0.00000', '0.00000', '0.0000', '0.0000', '2', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1', '1', 'web', '');
+INSERT INTO `mt_order` VALUES ('7', '1', '1', '[{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"1\",\"price\":\"-50\",\"qty\":2,\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"2\",\"sub_item\":\"\"},{\"currentController\":\"store\",\"merchant_id\":\"1\",\"item_id\":\"2\",\"price\":\"-100\",\"qty\":\"1\",\"discount\":\"\",\"notes\":\"\",\"row\":\"\",\"two_flavors\":\"\",\"non_taxable\":\"1\",\"sub_item\":\"\"}]', 'delivery', 'mlt', '200.0000', '0.0000', '0.0000', '200.0000', 'paid', '0', '1', '0.0000', '2017-01-31', '18:17', '', '', '', '0.0000', '', '0', '2017-01-31 18:22:29', '0000-00-00 00:00:00', '::1', '0.0000', '', '0.00000', '0.00000', '0.0000', '0.0000', '2', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '1', '1', 'web', '');
 
 -- ----------------------------
 -- Table structure for mt_order_delivery_address
@@ -841,14 +942,24 @@ CREATE TABLE `mt_order_delivery_address` (
   `date_created` datetime NOT NULL,
   `ip_address` varchar(50) NOT NULL,
   `contact_phone` varchar(100) NOT NULL,
+  `formatted_address` text NOT NULL,
+  `google_lat` varchar(50) NOT NULL,
+  `google_lng` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`),
   KEY `client_id` (`client_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_order_delivery_address
 -- ----------------------------
+INSERT INTO `mt_order_delivery_address` VALUES ('1', '1', '1', 'Qom', ' Qom Province', ' Iran', '37288', 'tandis', 'Iran', '2017-01-30 16:37:58', '::1', '+989373252746', '', '', '');
+INSERT INTO `mt_order_delivery_address` VALUES ('2', '2', '1', 'Qom', ' Qom Province', ' Iran', '37288', 'tandis', 'Iran', '2017-01-30 16:43:20', '::1', '+989373252746', '', '', '');
+INSERT INTO `mt_order_delivery_address` VALUES ('3', '3', '1', 'Qom', ' Qom Province', ' Iran', '37288', 'tandis', 'Iran', '2017-01-30 16:51:41', '::1', '+989373252746', '', '', '');
+INSERT INTO `mt_order_delivery_address` VALUES ('4', '4', '1', 'Qom', ' Qom Province', ' Iran', '37288', 'tandis', 'Iran', '2017-01-30 20:26:23', '::1', '+989373252746', '', '', '');
+INSERT INTO `mt_order_delivery_address` VALUES ('5', '5', '1', 'Qom', ' Qom Province', ' Iran', '37288', 'tandis', 'Iran', '2017-01-30 20:28:17', '::1', '+989373252746', '', '', '');
+INSERT INTO `mt_order_delivery_address` VALUES ('6', '6', '1', 'Qom', ' Qom Province', ' Iran', '37288', 'tandis', 'Iran', '2017-01-31 18:15:38', '::1', '+989373252746', '', '', '');
+INSERT INTO `mt_order_delivery_address` VALUES ('7', '7', '1', 'Qom', ' Qom Province', ' Iran', '37288', 'tandis', 'Iran', '2017-01-31 18:22:29', '::1', '+989373252746', '', '', '');
 
 -- ----------------------------
 -- Table structure for mt_order_details
@@ -870,11 +981,20 @@ CREATE TABLE `mt_order_details` (
   `ingredients` text NOT NULL,
   `non_taxable` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_order_details
 -- ----------------------------
+INSERT INTO `mt_order_details` VALUES ('1', '1', '1', '1', 'قرمه سبزی', '', '-50.0000', '50.0000', '', '1', '', '', '\"\"', '2');
+INSERT INTO `mt_order_details` VALUES ('2', '2', '1', '1', 'قرمه سبزی', '', '-50.0000', '50.0000', '', '1', '', '', '\"\"', '2');
+INSERT INTO `mt_order_details` VALUES ('3', '3', '1', '1', 'قرمه سبزی', '', '-50.0000', '50.0000', '', '1', '', '', '\"\"', '2');
+INSERT INTO `mt_order_details` VALUES ('4', '4', '1', '1', 'قرمه سبزی', '', '-50.0000', '50.0000', '', '1', '', '', '\"\"', '2');
+INSERT INTO `mt_order_details` VALUES ('5', '5', '1', '1', 'قرمه سبزی', '', '-50.0000', '50.0000', '', '1', '', '', '\"\"', '2');
+INSERT INTO `mt_order_details` VALUES ('6', '6', '1', '1', 'قرمه سبزی', '', '-50.0000', '50.0000', '', '1', '', '', '\"\"', '2');
+INSERT INTO `mt_order_details` VALUES ('7', '6', '1', '2', 'قیمه', '', '-100.0000', '100.0000', '', '1', '', '', '\"\"', '1');
+INSERT INTO `mt_order_details` VALUES ('8', '7', '1', '1', 'قرمه سبزی', '', '-50.0000', '50.0000', '', '2', '', '', '\"\"', '2');
+INSERT INTO `mt_order_details` VALUES ('9', '7', '1', '2', 'قیمه', '', '-100.0000', '100.0000', '', '1', '', '', '\"\"', '1');
 
 -- ----------------------------
 -- Table structure for mt_order_history
@@ -963,6 +1083,7 @@ CREATE TABLE `mt_packages` (
 -- ----------------------------
 -- Records of mt_packages
 -- ----------------------------
+INSERT INTO `mt_packages` VALUES ('1', 'بسته یک', 'ندارد', '10000.0000', '9900.0000', '1', 'days', '2', '10', '0', 'publish', '2017-01-25 18:32:22', '0000-00-00 00:00:00', '::1', '20');
 
 -- ----------------------------
 -- Table structure for mt_package_trans
@@ -1124,6 +1245,24 @@ INSERT INTO `mt_rating_meaning` VALUES ('3', '3.0', '4.0', 'very good', '2016-11
 INSERT INTO `mt_rating_meaning` VALUES ('4', '4.1', '5.0', 'excellent', '2016-11-30 00:33:07', '0000-00-00 00:00:00', '::1');
 
 -- ----------------------------
+-- Table structure for mt_receive_post
+-- ----------------------------
+DROP TABLE IF EXISTS `mt_receive_post`;
+CREATE TABLE `mt_receive_post` (
+  `id` int(14) NOT NULL AUTO_INCREMENT,
+  `payment_type` varchar(3) NOT NULL,
+  `receive_post` text NOT NULL,
+  `status` text NOT NULL,
+  `date_created` datetime NOT NULL,
+  `ip_address` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of mt_receive_post
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for mt_review
 -- ----------------------------
 DROP TABLE IF EXISTS `mt_review`;
@@ -1223,11 +1362,12 @@ CREATE TABLE `mt_sms_broadcast_details` (
   `ip_address` varchar(50) NOT NULL,
   `gateway` varchar(255) NOT NULL DEFAULT 'twilio',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mt_sms_broadcast_details
 -- ----------------------------
+INSERT INTO `mt_sms_broadcast_details` VALUES ('1', '999999999', '999999999', '0', '', '+989373252746', 'This is a sms test message', 'process', '', '2017-02-01 12:06:35', '2017-02-01 12:06:35', '::1', 'smsir');
 
 -- ----------------------------
 -- Table structure for mt_sms_package
@@ -1339,6 +1479,34 @@ CREATE TABLE `mt_subcategory_item` (
 -- ----------------------------
 -- Records of mt_subcategory_item
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for mt_transactions
+-- ----------------------------
+DROP TABLE IF EXISTS `mt_transactions`;
+CREATE TABLE `mt_transactions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `amount` varchar(14) DEFAULT NULL COMMENT 'مقدار',
+  `date` varchar(50) DEFAULT NULL COMMENT 'تاریخ',
+  `status` enum('unpaid','paid','deleted') DEFAULT 'unpaid' COMMENT 'وضعیت',
+  `description` varchar(200) CHARACTER SET utf8 COLLATE utf8_persian_ci DEFAULT NULL COMMENT 'توضیحات',
+  `order_id` int(14) DEFAULT NULL,
+  `ref_id` varchar(50) DEFAULT NULL,
+  `res_code` int(5) DEFAULT NULL,
+  `sale_reference_id` varchar(50) DEFAULT NULL,
+  `settle` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of mt_transactions
+-- ----------------------------
+INSERT INTO `mt_transactions` VALUES ('1', '200', '1485879555', 'unpaid', null, '7', null, null, null, '0');
+INSERT INTO `mt_transactions` VALUES ('2', '200', '1485879842', 'unpaid', null, '7', null, null, null, '0');
+INSERT INTO `mt_transactions` VALUES ('3', '200', '1485880098', 'unpaid', null, '7', null, null, null, '0');
+INSERT INTO `mt_transactions` VALUES ('4', '200', '1485880153', 'unpaid', null, '7', null, null, null, '0');
+INSERT INTO `mt_transactions` VALUES ('5', '200', '1485880196', 'unpaid', null, '7', null, null, null, '0');
+INSERT INTO `mt_transactions` VALUES ('6', '200', '1485880227', 'unpaid', null, '7', null, null, null, '0');
 
 -- ----------------------------
 -- Table structure for mt_voucher
@@ -1469,16 +1637,122 @@ CREATE TABLE `mt_zipcode` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for mt_counter_save
+-- ----------------------------
+DROP TABLE IF EXISTS `mt_counter_save`;
+CREATE TABLE `mt_counter_save` (
+  `save_name` varchar(10) NOT NULL,
+  `save_value` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`save_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of mt_counter_save
+-- ----------------------------
+INSERT INTO `mt_counter_save` VALUES ('counter', '0');
+INSERT INTO `mt_counter_save` VALUES ('day_time', '2457785');
+INSERT INTO `mt_counter_save` VALUES ('max_count', '0');
+INSERT INTO `mt_counter_save` VALUES ('max_time', '0');
+INSERT INTO `mt_counter_save` VALUES ('yesterday', '0');
+
+-- ----------------------------
+-- Table structure for mt_counter_users
+-- ----------------------------
+DROP TABLE IF EXISTS `mt_counter_users`;
+CREATE TABLE `mt_counter_users` (
+  `user_ip` varchar(255) NOT NULL,
+  `user_time` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`user_ip`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of mt_counter_users
+-- ----------------------------
+INSERT INTO `mt_counter_users` VALUES ('837ec5754f503cfaaee0929fd48974e7', '1485876873');
+
+-- ----------------------------
+-- View structure for mt_view_merchant
+-- ----------------------------
+DROP VIEW IF EXISTS `mt_view_merchant`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `mt_view_merchant` AS SELECT a.*,
+b.option_value as latitude,
+c.option_value as lontitude,
+d.option_value as delivery_charges,
+e.option_value as minimum_order,
+f.ratings
+
+FROM
+mt_merchant a
+left join mt_option b
+ON 
+a.merchant_id =b.merchant_id 	
+and b.option_name='merchant_latitude'
+
+left join mt_option c
+ON 
+a.merchant_id =c.merchant_id 	
+and c.option_name='merchant_longtitude'
+
+left join mt_option d
+ON 
+a.merchant_id =d.merchant_id 	
+and d.option_name='merchant_delivery_charges'
+
+left join mt_option e
+ON 
+a.merchant_id =e.merchant_id 	
+and e.option_name='merchant_minimum_order'
+
+left join mt_view_ratings f
+ON 
+a.merchant_id =f.merchant_id ;
+
+-- ----------------------------
+-- View structure for mt_view_order_details
+-- ----------------------------
+DROP VIEW IF EXISTS `mt_view_order_details`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `mt_view_order_details` AS select a.* ,
+
+(
+select merchant_id 	
+from
+mt_order
+where
+order_id=a.order_id
+limit 0,1
+) as merchant_id,
+
+(
+select status 	
+from
+mt_order
+where
+order_id=a.order_id
+limit 0,1
+) as status,
+
+(
+select date_created 	
+from
+mt_order
+where
+order_id=a.order_id
+limit 0,1
+) as date_created
+
+from
+mt_order_details a ;
+
+-- ----------------------------
 -- View structure for mt_view_ratings
 -- ----------------------------
 DROP VIEW IF EXISTS `mt_view_ratings`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `mt_view_ratings` AS select
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `mt_view_ratings` AS select 
 merchant_id,
 SUM(ratings)/COUNT(*) AS ratings
 from
 mt_rating
 group by merchant_id ;
-
 
 -- ----------------------------
 -- View structure for mt_view_merchant
@@ -1553,3 +1827,14 @@ limit 0,1
 
 from
 mt_order_details a ;
+
+-- ----------------------------
+-- View structure for mt_view_ratings
+-- ----------------------------
+DROP VIEW IF EXISTS `mt_view_ratings`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `mt_view_ratings` AS select
+merchant_id,
+SUM(ratings)/COUNT(*) AS ratings
+from
+mt_rating
+group by merchant_id ;

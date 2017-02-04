@@ -136,7 +136,7 @@ Yii::app()->functions->getOptionAdmin("admin_currency_position"));
 	          /*echo '<span class="bold">'.date("M d Y",strtotime($s['kr_delivery_options']['delivery_date'])).
 	          " ".t("at"). " ". $s['kr_delivery_options']['delivery_time']."</span> ".t("to");*/
 	          
-	          echo '<span class="bold">'.Yii::app()->functions->translateDate(date("M d Y",strtotime($s['kr_delivery_options']['delivery_date']))).
+	          echo '<span class="bold">'.Yii::app()->functions->translateDate(JalaliDate::date("d F Y",strtotime($s['kr_delivery_options']['delivery_date']),false)).
 	          " ".t("at"). " ". $s['kr_delivery_options']['delivery_time']."</span> ".t("to");
 	        }
 	        ?>
@@ -313,7 +313,7 @@ Yii::app()->functions->getOptionAdmin("admin_currency_position"));
      
      
      <div class="top25">
-     <?php 
+     <?php
 	 $this->renderPartial('/front/payment-list',array(
 	   'merchant_id'=>$merchant_id,
 	   'payment_list'=>FunctionsV3::getMerchantPaymentList($merchant_id)

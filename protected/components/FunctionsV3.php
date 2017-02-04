@@ -104,11 +104,21 @@ class FunctionsV3
         $top_menu[]=array('tag'=>"contact",
                 'visible'=>in_array('contact',(array)$top_menu_activated)?true:false,
                 'label'=>''.Yii::t("default","Contact"),
-                'url'=>array('/store/contact'));                             
-                                       
-       $top_menu[]=array('visible'=>$client_signup,
-                'tag'=>"signup",'label'=>''.Yii::t("default","Login & Signup"),
-                'url'=>array('/store/signup'));
+                'url'=>array('/store/contact'));
+
+        $website_disabled_login_popup=Yii::app()->functions->getOptionAdmin('website_disabled_login_popup');
+        $link_sigup='javascript:;';
+        $link_sigup_class='top_signup';
+        if ( $website_disabled_login_popup=="yes"){
+            $link_sigup=array('/store/signup');
+            $link_sigup_class='';
+        }
+        $top_menu[]=array('visible'=>$client_signup,
+            'tag'=>"signup",
+            'label'=>''.Yii::t("default","Login & Signup"),
+            'url'=>$link_sigup,
+            'itemOptions'=>array('class'=>$link_sigup_class)
+        );
 
         $top_menu[]=array(
                 'tag'=>"blog",
@@ -1083,6 +1093,7 @@ class FunctionsV3
     	  'obd'=>t("Offline Bank Deposit"),
     	  'btr' =>t("Braintree"),
     	  'rzr'=>t("Razorpay"),
+    	  'mlt'=>t("Mellat"),
     	  /*'mol'=>t("Mollie"),
     	  'ip8'=>t("Ipay88"),*/
     	);
@@ -1171,6 +1182,9 @@ class FunctionsV3
 			//dump($payment_available);		
 		} else {
 			//membership			
+			if ( getOption('admin_enabled_mellat')==""){
+				$payment_available[]='mlt';
+			}
 			if ( getOption($merchant_id,'merchant_disabled_cod')==""){
 				$payment_available[]='cod';
 			}
@@ -1216,7 +1230,7 @@ class FunctionsV3
 			if (getOptionA('merchant_btr_enabled')==2){
 	    		$payment_available[]='btr';
 	    	}
-			
+
 			$admin_available_payment=Yii::app()->functions->getMerchantListOfPaymentGateway();
 			if (is_array($admin_available_payment) && count($admin_available_payment)>=1 ){
 				foreach ($payment_available as $key=>$val) {

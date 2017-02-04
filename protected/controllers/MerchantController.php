@@ -256,6 +256,15 @@ class MerchantController extends CController
 	    	$this->render('paypal-settings');
         } else $this->render('noaccess');
     }
+
+	public function actionMellatSettings()
+    {
+    	$py=Yii::app()->functions->getMerchantListOfPaymentGateway();
+		if (in_array('mellat',(array)$py) || in_array('mlt',(array)$py) ){
+	    	$this->crumbsTitle=Yii::t("default","Mellat Settings");
+	    	$this->render('mellat-settings');
+        } else $this->render('noaccess');
+    }
     
     public function actionSalesReport()
     {

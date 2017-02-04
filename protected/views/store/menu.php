@@ -224,7 +224,7 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 			 	 if(!empty($temp_activated_menu)){
 			 	 	 $admin_activated_menu=$temp_activated_menu;
 			 	 }
-			 }			 
+			 }
 			 switch ($admin_activated_menu)
 			 {
 			 	case 1:
@@ -243,7 +243,7 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 					));
 			 		break;
 			 			
-			 	default:	
+			 	default:
 				 	$this->renderPartial('/front/menu-merchant-1',array(
 					  'merchant_id'=>$merchant_id,
 					  'menu'=>$menu,
@@ -437,8 +437,7 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
            ))?>
            
            <?php echo CHtml::hiddenField('delivery_date',$now)?>
-           <?php echo CHtml::textField('delivery_date1',
-            FormatDateTime($now,false),array('class'=>"j_date grey-fields",'data-id'=>'delivery_date'))?>
+           <?php echo CHtml::textField('delivery_date1','',array('class'=>"j_date grey-fields",'data-id'=>'delivery_date'))?>
            
            <div class="delivery_asap_wrap">            
             <?php $detect = new Mobile_Detect;?>           
