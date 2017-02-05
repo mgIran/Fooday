@@ -2197,16 +2197,17 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    
 	    public function clientRegistrationModal()
 	    {
-	    	
-	    	/*csrf validation*/
-			if(!isset($_POST[Yii::app()->request->csrfTokenName])){
-				$this->msg=t("The CSRF token is missing");
-				return ;
-			}	    
-			if ( $_POST[Yii::app()->request->csrfTokenName] != Yii::app()->getRequest()->getCsrfToken()){
-				$this->msg=t("The CSRF token could not be verified");
-				return ;
-			}  	
+	    	if(!isset($_POST['method'])) {
+				/*csrf validation*/
+				if (!isset($_POST[Yii::app()->request->csrfTokenName])) {
+					$this->msg = t("The CSRF token is missing");
+					return;
+				}
+				if ($_POST[Yii::app()->request->csrfTokenName] != Yii::app()->getRequest()->getCsrfToken()) {
+					$this->msg = t("The CSRF token could not be verified");
+					return;
+				}
+			}
 
 	    	/** check if admin has enabled the google captcha*/    	    	
 	    	/*if ( getOptionA('captcha_customer_signup')==2){
@@ -2306,17 +2307,18 @@ $resto_info.="<p><span class=\"uk-text-bold\">".Yii::t("default","Delivery Est")
 	    }		    
 	    
 	    public function clientLogin()
-	    {	
-	    		    	
-	    	/*csrf validation*/
-			if(!isset($_POST[Yii::app()->request->csrfTokenName])){
-				$this->msg=t("The CSRF token is missing");
-				return ;
-			}	    
-			if ( $_POST[Yii::app()->request->csrfTokenName] != Yii::app()->getRequest()->getCsrfToken()){
-				$this->msg=t("The CSRF token could not be verified");
-				return ;
-			}  	
+	    {
+			if(!isset($_POST["method"])) {
+				/*csrf validation*/
+				if (!isset($_POST[Yii::app()->request->csrfTokenName])) {
+					$this->msg = t("The CSRF token is missing");
+					return;
+				}
+				if ($_POST[Yii::app()->request->csrfTokenName] != Yii::app()->getRequest()->getCsrfToken()) {
+					$this->msg = t("The CSRF token could not be verified");
+					return;
+				}
+			}
 	    	
 	    	/** check if admin has enabled the google captcha*/    	    	
 	    	if ( $this->data['action']=="clientLogin" || $this->data['action']=="clientLoginModal"){
@@ -6693,7 +6695,8 @@ $params['cart_tip_value']=isset($this->data['cart_tip_value'])?$this->data['cart
 	    	}	    		  
 	    	    		    	
 	    	if (empty($this->data['id'])){	
-	    		$params['slug_name']=strtolower(Yii::app()->functions->customPageCreateSlug($this->data['page_name']));	    	
+//	    		$params['slug_name']=strtolower(Yii::app()->functions->customPageCreateSlug($this->data['page_name']));
+	    		$params['slug_name']=Yii::app()->functions->customPageCreateSlug($this->data['page_name']);
 		    	if ( $this->insertData("{{custom_page}}",$params)){
 		    		$this->details=Yii::app()->db->getLastInsertID();
 			    		$this->code=1;

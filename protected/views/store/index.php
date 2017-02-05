@@ -536,7 +536,7 @@ $placholder_search=Yii::t("default",$placholder_search);
 <!-- End white_bg -->
 
 <!-- Call Action Section -->
-<section class="page-section bottommargin-sm bg-dark bg-dark-alfa-50" data-background="<?php echo assetsURL()."/images/full-width-images/section-bg-2.jpg"?>">
+<section class="page-section bottommargin-sm bg-dark bg-dark-alfa-50" style="margin-bottom: 0 !important;" data-background="<?php echo assetsURL()."/images/full-width-images/section-bg-2.jpg"?>">
     <div class="container relative">
 
         <div class="align-center">
@@ -675,7 +675,7 @@ $placholder_search=Yii::t("default",$placholder_search);
     <div class="section-padding"></div>
 </div>
 
-<section class="page-section bg-dark bg-dark-alfa-50" data-background="<?php echo assetsURL()."/images/dish.jpg"?>">
+<!--<section class="page-section bg-dark bg-dark-alfa-50" data-background="<?php //echo assetsURL()."/images/dish.jpg"?>">
     <div class="container relative">
 
         <div class="col-sm-6">
@@ -700,7 +700,7 @@ $placholder_search=Yii::t("default",$placholder_search);
     </div>
 
     </div>
-</section>
+</section>-->
 
 <?php if ( getOptionA('disabled_subscription') == ""):?>
     <section class="small-section bg-gray-lighter">

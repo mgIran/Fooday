@@ -94,7 +94,7 @@ if ( empty($val['latitude'])){
         </div> <!--col-->
         
         <!--MAP-->
-        <div class="col-md-6 with-padleft" style="padding-left:0; border-left:1px solid #C9C7C7;" >
+        <div class="col-md-6 with-padleft" >
           <div class="browse-list-map active" 
 		        data-lat="<?php echo $val['latitude']?>" data-long="<?php echo $val['lontitude']?>">
              

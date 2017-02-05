@@ -1,7 +1,7 @@
 
 <div class="search-wraps single-search">
-
-  <h1><?php echo $home_search_text;?></h1>
+    <h1 id="brand-name">fooday</h1>
+  <h2><?php echo $home_search_text;?></h2>
   <p><?php echo $home_search_subtext;?></p>
     
   <form method="GET" class="forms-search" id="forms-search" action="<?php echo Yii::app()->createUrl('store/searcharea')?>">

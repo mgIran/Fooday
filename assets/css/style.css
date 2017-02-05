@@ -7300,7 +7300,8 @@ a.strip_list {
     transition: all 0.4s ease-in-out;
 }
 
-.search-wraps h1 {
+.search-wraps h1,
+.search-wraps h2{
     color: #fff;
     font-size: 56px;
     text-align: center;
@@ -7308,7 +7309,7 @@ a.strip_list {
     font-family: Dosis,IRANSans, arial, sans-serif;
     text-transform: uppercase;
 }
-#home .search-wraps h1{
+#home .search-wraps h2{
     max-height: 25px;
 }
 .search-wraps p, .search-wraps p a {
@@ -7546,7 +7547,7 @@ a.strip_list {
 }
 .find-near-restaurant{
     display: inline-block;
-    margin: 50px auto 0;
+    margin: 30px auto 0;
     font-weight: bold;
     text-shadow: 0 1px #000;
 }
@@ -7555,9 +7556,8 @@ a.strip_list {
     background-size: 30px;
     width: 30px;
     height:30px;
-    margin-left: 7px;
-    display: inline-block;
-    vertical-align: bottom;
+    margin: 0 auto 7px;
+    display: block;
 }
 .login-btn-wrap{
     width: 210px;
@@ -7609,4 +7609,20 @@ a.strip_list {
 }
 .inner-nav ul li{
     border:none;
+}
+@font-face {
+    font-family: Inspiration;
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Inspiration.eot');
+    src: url('../fonts/Inspiration.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('../fonts/Inspiration.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/Inspiration.ttf') format('truetype');
+}
+#brand-name{
+    font-family: Inspiration;
+    font-size: 150px;
+    color: #fff;
+    margin: 0;
+    text-transform: lowercase;
 }

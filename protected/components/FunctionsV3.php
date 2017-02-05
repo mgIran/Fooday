@@ -88,7 +88,7 @@ class FunctionsV3
 		if ($enabled_commission=="yes"){
 		   $signup_link="/store/merchantsignupselection";	
 		}         
-		
+
 		$client_signup=in_array('signup',(array)$top_menu_activated)?true:false;
 		if ($client_signup){
 			$client_signup=Yii::app()->functions->isClientLogin()?false:true;
@@ -113,12 +113,12 @@ class FunctionsV3
             $link_sigup=array('/store/signup');
             $link_sigup_class='';
         }
-        $top_menu[]=array('visible'=>$client_signup,
-            'tag'=>"signup",
-            'label'=>''.Yii::t("default","Login & Signup"),
-            'url'=>$link_sigup,
-            'itemOptions'=>array('class'=>$link_sigup_class)
-        );
+//        $top_menu[]=array('visible'=>$client_signup,
+//            'tag'=>"signup",
+//            'label'=>''.Yii::t("default","Login & Signup"),
+//            'url'=>$link_sigup,
+//            'itemOptions'=>array('class'=>$link_sigup_class)
+//        );
 
         $top_menu[]=array(
                 'tag'=>"blog",

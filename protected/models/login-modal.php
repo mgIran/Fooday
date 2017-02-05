@@ -43,10 +43,10 @@
   
  <div class="section2"> 
       <form id="frm-modal-login" class="frm-modal-login uk-panel uk-panel-box uk-form" method="POST" onsubmit="return false;">
+         <?php echo CHtml::hiddenField('method','modal')?>
          <?php echo CHtml::hiddenField('action','clientLoginModal')?>
          <?php echo CHtml::hiddenField('do-action', isset($_GET['do-action'])?$_GET['do-action']:'' )?>
          <?php echo CHtml::hiddenField('rating', isset($_GET['rating'])?$_GET['rating']:'' )?>
-          <?php FunctionsV3::addCsrfToken(false);?>
          <h3><?php echo Yii::t("default","Log in to your account")?></h3>
          <div class="uk-form-row">
            <?php echo CHtml::textField('username','',
@@ -77,7 +77,6 @@
     <form id="frm-modal-forgotpass" class="frm-modal-forgotpass uk-panel uk-panel-box uk-form" method="POST" onsubmit="return false;">
     <?php echo CHtml::hiddenField('action','forgotPassword')?>
      <?php echo CHtml::hiddenField('do-action',$_GET['do-action'])?>
-        <?php FunctionsV3::addCsrfToken(false);?>
      <h3><?php echo Yii::t("default","Forgot Password")?></h3>
          
     <div class="uk-form-row">
@@ -99,9 +98,9 @@
   
  <div class="section3"> 
   <form id="form-signup" class="form-signup uk-panel uk-panel-box uk-form" method="POST" onsubmit="return false;">
+    <?php echo CHtml::hiddenField('method','modal')?>
     <?php echo CHtml::hiddenField('action','clientRegistrationModal')?>
-      <?php FunctionsV3::addCsrfToken(false);?>
-    <?php 
+    <?php
     $verification=Yii::app()->functions->getOptionAdmin("website_enabled_mobile_verification");	    
     if ( $verification=="yes"){
         echo CHtml::hiddenField('verification',$verification);

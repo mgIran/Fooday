@@ -10,32 +10,32 @@ $this->renderPartial('/front/default-header',array(
  <div class="container">
 
     <div class="tabs-wrapper">
-      <ul id="tabs">
-		  <li class="<?php echo $tabs==1?"active":''?> noclick"  >
-		    <a href="<?php echo Yii::app()->createUrl('/store/browse')?>">
+      <!--<ul id="tabs">
+		  <li class="<?php //echo $tabs==1?"active":''?> noclick"  >
+		    <a href="<?php //echo Yii::app()->createUrl('/store/browse')?>">
 		    <i class="ion-coffee"></i>
-		     <span><?php echo t("Restaurant List")?></span>
+		     <span><?php //echo t("Restaurant List")?></span>
 		    </a>
 		  </li>
-		  <li class="<?php echo $tabs==2?"active":''?> noclick">
-		    <a href="<?php echo Yii::app()->createUrl('/store/browse/?tab=2')?>">
+		  <li class="<?php //echo $tabs==2?"active":''?> noclick">
+		    <a href="<?php //echo Yii::app()->createUrl('/store/browse/?tab=2')?>">
 		    <i class="ion-pizza"></i>
-		     <span><?php echo t("Newest")?></span>
+		     <span><?php //echo t("Newest")?></span>
 		    </a>
 		  </li>
-		  <li class="<?php echo $tabs==3?"active":''?> noclick" >
-		    <a href="<?php echo Yii::app()->createUrl('/store/browse/?tab=3')?>">
+		  <li class="<?php //echo $tabs==3?"active":''?> noclick" >
+		    <a href="<?php //echo Yii::app()->createUrl('/store/browse/?tab=3')?>">
 		    <i class="ion-fork"></i>
-		      <span><?php echo t("Featured")?></span>
+		      <span><?php //echo t("Featured")?></span>
 		    </a>
 		  </li>
 		  <li class="full-maps nounderline">				  
 		    <a href="javascript:;" >
 		    <i class="ion-android-globe"></i>    
-		     <span><?php echo t("View Restaurant by map")?></span>	    
+		     <span><?php //echo t("View Restaurant by map")?></span>
 		  </li>
 		   </a>
-      </ul>		    
+      </ul>-->
       
       <ul id="tab">
           <li class="<?php echo $tabs==1?"active":''?>" >            

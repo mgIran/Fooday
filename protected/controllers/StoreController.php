@@ -1004,6 +1004,7 @@ class StoreController extends CController
         $url=isset($_SERVER['REQUEST_URI'])?explode("/",$_SERVER['REQUEST_URI']):false;
 		if(is_array($url) && count($url)>=1){
 			$page_slug=$url[count($url)-1];
+			$page_slug=urldecode($page_slug);
 			$page_slug=str_replace('page-','',$page_slug);			
 			if(isset($_GET)){				
 				$c=strpos($page_slug,'?');

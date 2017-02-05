@@ -82,16 +82,16 @@
             <nav class="menu white-mode" ng-class="{'white-mode': !menuFixed}">
 
                     <span class="not-link support">
-                        <a href="#">
+                        <a href="<?php echo Yii::app()->createUrl("/contact");?>">
                             <i class="fa fa-lg fa-phone-square"></i>
                             ۸۶۰۳۶۹۲۴ - ۰۲۱
 
                         </a>
                     </span>
-<!--                    <span class="not-link">-->
-<!--                        <i class="fa fa-user"></i><a href="#login-modal" data-toggle="modal">ورود</a>-->
-<!--                    </span>-->
-<!--                <i class="fa fa-dot-circle-o"></i><a href="#signup-modal" data-toggle="modal">ثبت نام</a>-->
+                    <span class="not-link">
+                        <i class="fa fa-user"></i><a href="javascript:;" class="top_signup">ورود</a>
+                    </span>
+                <i class="fa fa-dot-circle-o"></i><a href="javascript:;" class="top_signup">ثبت نام</a>
             </nav>
         </div>
     </div>
