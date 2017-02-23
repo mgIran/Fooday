@@ -36,10 +36,10 @@ $cs->registerScript(
 );		
 
 /*PROGRESS ORDER BAR*/
-$this->renderPartial('/front/order-progress-bar',array(
-   'step'=>3,
-   'show_bar'=>true
-));
+//$this->renderPartial('/front/order-progress-bar',array(
+//   'step'=>3,
+//   'show_bar'=>true
+//));
 
 $now=date('Y-m-d');
 $now_time='';
@@ -370,13 +370,13 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
 	        <p class="delivery-fee-wrap">
 	        <?php echo t("Delivery Est")?>: <?php echo FunctionsV3::getDeliveryEstimation($merchant_id)?></p>
 	        
-	        <p class="delivery-fee-wrap">
-	        <?php 
-	        if (!empty($merchant_delivery_distance)){
-	        	echo t("Delivery Distance Covered").": ".$merchant_delivery_distance." $distance_type_orig";
-	        } else echo  t("Delivery Distance Covered").": ".t("not available");
-	        ?>
-	        </p>
+<!--	        <p class="delivery-fee-wrap">-->
+<!--	        --><?php //
+//	        if (!empty($merchant_delivery_distance)){
+//	        	echo t("Delivery Distance Covered").": ".$merchant_delivery_distance." $distance_type_orig";
+//	        } else echo  t("Delivery Distance Covered").": ".t("not available");
+//	        ?>
+<!--	        </p>-->
 	        
 	        <p class="delivery-fee-wrap">
 	        <?php 
@@ -431,36 +431,66 @@ Yii::app()->getBaseUrl(true).FunctionsV3::getMerchantLogo($merchant_id)
            <i class="order-icon delivery-option-icon"></i>
            <p class="bold"><?php echo t("Delivery Options")?></p>
            
-           <?php echo CHtml::dropDownList('delivery_type',$now,
-           (array)Yii::app()->functions->DeliveryOptions($merchant_id),array(
-             'class'=>'grey-fields'
-           ))?>
-           
-           <?php echo CHtml::hiddenField('delivery_date',$now)?>
-           <?php echo CHtml::textField('delivery_date1','',array('class'=>"j_date grey-fields",'data-id'=>'delivery_date'))?>
-           
-           <div class="delivery_asap_wrap">            
-            <?php $detect = new Mobile_Detect;?>           
-            <?php if ( $detect->isMobile() ) :?>
-             <?php                           
-             echo CHtml::dropDownList('delivery_time',$now_time,
-             (array)FunctionsV3::timeList()
-             ,array(
-              'class'=>"grey-fields"
-             ))
-             ?>
-            <?php else :?>                       
-	         <?php echo CHtml::textField('delivery_time',$now_time,
-	          array('class'=>"timepick grey-fields",'placeholder'=>Yii::t("default","Delivery Time")))?>
-	       <?php endif;?>  	          	                 
-	          <span class="delivery-asap">
-	           <?php echo CHtml::checkBox('delivery_asap',false,array('class'=>"icheck"))?>
-	            <span class="text-muted"><?php echo Yii::t("default","Delivery ASAP?")?></span>	          
-	         </span>       	         	        	         
-           </div><!-- delivery_asap_wrap-->
-           
+<!--           --><?php //echo CHtml::dropDownList('delivery_type',$now,
+//           (array)Yii::app()->functions->DeliveryOptions($merchant_id),array(
+//             'class'=>'grey-fields'
+//           ))?>
+
+			<div class="switch-container">
+				<span>ارسال به آدرس شما</span>
+				<label class="switch">
+					<input type="checkbox" checked id="delivery-switch">
+					<div class="slider"></div>
+				</label>
+				<span>تحویل از رستوران</span>
+                <?php echo CHtml::hiddenField("delivery_type", "send to address", array("id"=>"delivery-type"));?>
+			</div>
+            <?php Yii::app()->clientScript->registerScript("delivery-switch", '
+                $("#delivery-switch").on("change", function(){
+                    if($(this).is(":checked"))
+                        $("#delivery-type").val("send to address");
+                    else
+                        $("#delivery-type").val("delivery from restaurants");
+                });
+            ');?>
+
+            <div class="order-future">
+                <?php echo CHtml::checkBox('future_delivery', false, array("data-toggle"=>"collapse", "data-target"=>"#date-time-picker-container"))?>
+                <span class="text-muted"><?php echo Yii::t("default","Order for the future")?></span>
+            </div>
+			<div id="date-time-picker-container" class="collapse">
+			   <?php echo CHtml::hiddenField('delivery_date',$now)?>
+			   <?php echo CHtml::textField('delivery_date1','',array('class'=>"j_date grey-fields",'data-id'=>'delivery_date'))?>
+
+			   <div class="delivery_asap_wrap">
+				<?php $detect = new Mobile_Detect;?>
+				<?php if ( $detect->isMobile() ) :?>
+				 <?php
+				 echo CHtml::dropDownList('delivery_time',$now_time,
+				 (array)FunctionsV3::timeList()
+				 ,array(
+				  'class'=>"grey-fields"
+				 ))
+				 ?>
+				<?php else :?>
+				 <?php echo CHtml::textField('delivery_time',$now_time,
+				  array('class'=>"timepick grey-fields",'placeholder'=>Yii::t("default","Delivery Time")))?>
+			   <?php endif;?>
+			   </div><!-- delivery_asap_wrap-->
+			</div>
+
+            <div class="delivery_asap_wrap">
+                <span class="delivery-asap">
+				   <?php echo CHtml::checkBox('delivery_asap',false)?>
+                    <span class="text-muted"><?php echo Yii::t("default","Delivery ASAP?")?><span data-toggle="popover" data-content="با انتخاب این گزینه، تیم فودی تمام تلاشش رو انجام میده تا سفارش شما در کوتاه ترین زمان و درصورت امکان کمتر از زمان اعلام شده به دستتون برسه!">(?)</span></span>
+				 </span>
+            </div><!-- delivery_asap_wrap-->
+            <?php Yii::app()->clientScript->registerScript("popover", '
+                $(\'[data-toggle="popover"]\').popover();
+            ');?>
+
            <?php if ( $checkout['code']==1):?>
-              <a href="javascript:;" class="orange-button medium checkout"><?php echo $checkout['button']?></a>
+              <a href="javascript:;" class="orange-button medium checkout bold"><?php echo $checkout['button']?></a>
            <?php else :?>
               <?php if ( $checkout['holiday']==1):?>
                  <?php echo CHtml::hiddenField('is_holiday',$checkout['msg'],array('class'=>'is_holiday'));?>

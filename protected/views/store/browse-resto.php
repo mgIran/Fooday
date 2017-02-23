@@ -38,7 +38,7 @@ $this->renderPartial('/front/default-header',array(
       </ul>-->
       
       <ul id="tab">
-          <li class="<?php echo $tabs==1?"active":''?>" >            
+          <li class="<?php echo $tabs==1?"active":''?>" >
             <?php
             if ( $tabs==1):
 	            if (is_array($list['list']) && count($list['list'])>=1){

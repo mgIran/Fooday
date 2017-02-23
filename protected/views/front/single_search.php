@@ -1,6 +1,6 @@
 
 <div class="search-wraps single-search">
-    <h1 id="brand-name">fooday</h1>
+    <h1 id="brand-name">fooday<small>- Good Day! Good Food! -</small></h1>
   <h2><?php echo $home_search_text;?></h2>
   <p><?php echo $home_search_subtext;?></p>
     

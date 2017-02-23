@@ -1456,17 +1456,32 @@ jQuery(document).ready(function() {
    	   var params="action=loginModal&tbl=loginModal&do-action=sigin&currentController=store";
        open_fancy_box(params);
    });
-      
-   $( document ).on( "click", ".top_signup", function() {    	  
-   	   var params="action=loginModal&tbl=loginModal&do-action=sigin&currentController=store";
-       open_fancy_box(params);
+
+   $( document ).on( "click", ".top_signup", function() {
+       var params = "action=loginModal&tbl=loginModal&do-action=sigin&currentController=store",
+           callback;
+
+       if ($(this).hasClass("login")) {
+           callback = function () {
+               $(".section1").hide();
+               $(".section2").fadeIn();
+           };
+       } else if ($(this).hasClass("signup")) {
+           callback = function () {
+               $(".section3").fadeIn();
+               $(".section2").hide();
+               $(".section1").hide();
+           };
+       }
+
+       open_fancy_box(params, callback);
    });
-   
-   $( document ).on( "click", ".edit-review", function() {    	  
+
+   $( document ).on( "click", ".edit-review", function() {
    	   var id=$(this).data("id");
    	   var params="action=editReview&currentController=store&tbl=editReview&id="+id+"&web_session_id="+$("#web_session_id").val();
        open_fancy_box(params);
-   });	
+   });
 
      
    $( document ).on( "click", ".delete-review", function() {    	  
@@ -1794,9 +1809,11 @@ function research_merchant()
     return false;    
 }
 
-function open_fancy_box(params)
-  {  	  	  	  	
-  	dump(params);
+function open_fancy_box(params, callback)
+  {
+      if(typeof callback == undefined)
+          callback=null;
+      console.log(typeof callback == undefined);
 	var URL=ajax_url+"/?"+params;
 		$.fancybox({        
 		maxWidth:800,
@@ -1809,6 +1826,7 @@ function open_fancy_box(params)
 		href : URL,
 		openEffect :'elastic',
 		closeEffect :'elastic',
+        afterShow: callback,
 		helpers: {
 		    overlay: {
 		      locked: false
@@ -2080,9 +2098,11 @@ function load_top_menu()
     success: function(data){ 
     	busy(false);      
     	if (data.code==1){
-    		$(".section-to-menu-user").append(data.details);
-    		$(".top_signup").remove();
-    		$(".top_sigin").remove();
+    		//$(".section-to-menu-user").append(data.details);
+    		//$(".top_signup").remove();
+    		//$(".top_sigin").remove();
+
+			location.reload();
     	}
     }, 
     error: function(){	        	    	

@@ -26,14 +26,14 @@ data-image-src="<?php echo empty($background)?assetsURL()."/images/b-2.jpg":uplo
 	     <div class="mycol">
 	        <?php echo FunctionsV3::merchantOpenTag($merchant_id)?>             
 	     </div>
-	     <div class="mycol">
-	        <p class="small"><?php echo t("Minimum Order").": ".FunctionsV3::prettyPrice($minimum_order)?></p>
-	     </div>
+<!--	     <div class="mycol">-->
+<!--	        <p class="small">--><?php //echo t("Minimum Order").": ".FunctionsV3::prettyPrice($minimum_order)?><!--</p>-->
+<!--	     </div>-->
 	   </div> <!--mytable-->
 
 	<h1><?php echo clearString($restaurant_name)?></h1>
 	<p><i class="fa fa-map-marker"></i> <?php echo $merchant_address?></p>
-	<p class="small"><?php echo FunctionsV3::displayCuisine($cuisine);?></p>
+<!--	<p class="small">--><?php //echo FunctionsV3::displayCuisine($cuisine);?><!--</p>-->
 	<p><?php echo FunctionsV3::getFreeDeliveryTag($merchant_id)?></p>
 	
 	<?php if ( getOption($merchant_id,'merchant_show_time')=="yes"):?>

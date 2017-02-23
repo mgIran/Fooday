@@ -1087,25 +1087,85 @@ class StoreController extends CController
 		if (!isset($_GET['tab'])){
 			$_GET['tab']='';
 		}
-		switch ($_GET['tab']){			
-			case 2:
-			  $tabs=2;
-		      $list=Yii::app()->functions->getAllMerchantNewest();		
-		      break;
-		      
-		    case 3:
-			  $tabs=3;
-			  $list=Yii::app()->functions->getFeaturedMerchant();	      
-		      break;  
-		    
-		    case "4":
-		       break;  
-		    	  
-			default:
-			  $tabs=1;
-			  $list=Yii::app()->functions->getAllMerchant();		
-			  break;
-		}
+		switch ($_GET['tab']) {
+            case 2:
+                $tabs = 2;
+                $list = Yii::app()->functions->getAllMerchantNewest();
+                break;
+
+            case 3:
+                $tabs = 3;
+                $list = Yii::app()->functions->getFeaturedMerchant();
+                break;
+
+            case "4":
+                break;
+
+            default:
+                $tabs = 1;
+                if (isset($_POST["Filter"])) {
+                    $where = "";
+                    $select = "";
+                    $order = "membership_expired";
+                    $filters = $_POST["Filter"];
+
+                    if (key_exists("with-discounts", $filters))
+                        $where .= " AND merchant_id IN (SELECT DISTINCT merchant_id FROM {{item}} WHERE discount IS NOT NULL ORDER BY discount)";
+                    elseif (key_exists("newest", $filters))
+                        $order .= "merchant_id";
+                    elseif (key_exists("max-rate", $filters)) {
+                        $select .= ", (SELECT SUM(rating) as ratings FROM {{review}} WHERE merchant_id=a.merchant_id) AS rate";
+                        $order .= "rate, membership_expired";
+                    }elseif(key_exists("type", $filters)){
+                        $where.=" AND (";
+                        $i=0;
+                        foreach($filters["type"] as $type=>$id) {
+                            if($i==0)
+                                $where .= "cuisine LIKE '%\"$id\"%'";
+                            else
+                                $where .= " OR cuisine LIKE '%\"$id\"%'";
+                            $i++;
+                        }
+                        $where.=")";
+					}
+
+                    $page = isset($_GET['page']) ? ((int)$_GET['page']) : 1;
+                    $page = $page - 1;
+                    $limit = FunctionsV3::getPerPage();
+
+                    $start = $page * $limit;
+
+                    $db_ext = new DbExt;
+                    $db_ext->qry("SET SQL_BIG_SELECTS=1");
+
+                    $stmt = "SELECT SQL_CALC_FOUND_ROWS a.*,
+					concat(street,' ',city,' ',state,' ',post_code) as merchant_address
+					$select
+					 FROM
+					{{view_merchant}} a
+					WHERE is_ready ='2'
+					AND status in ('active')
+					$where
+					ORDER BY $order DESC
+					LIMIT $start,$limit
+					";
+                    //var_dump($stmt);exit;
+                    if ($res = $db_ext->rst($stmt)) {
+                        $stmt_rows = "SELECT FOUND_ROWS()";
+                        $total_found = 0;
+                        if ($rows = $db_ext->rst($stmt_rows)) {
+                            $total_found = $rows[0]['FOUND_ROWS()'];
+                        }
+                        $list = array(
+                            'total'=>$total_found,
+                            'list'=>$res
+                        );
+                    } else
+                        $list = false;
+                } else
+                    $list = Yii::app()->functions->getAllMerchant();
+                break;
+        }
 
 		$country_list=Yii::app()->functions->CountryList();
 		$country=getOptionA('merchant_default_country');  

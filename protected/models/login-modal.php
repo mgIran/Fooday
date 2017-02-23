@@ -35,7 +35,15 @@
    <p class="uk-text-muted"><?php echo Yii::t("default","Or use your email address")?></p>
    <?php endif;?>     
    
-   <div class="login-btn-wrap">
+   <div class="login-btn-wrap" id="login-fancy-link-container">
+       <div class="loading-container">
+           <div class="overly"></div>
+           <div class="spinners">
+               <div class="spinner"></div>
+               <div class="spinner-2"></div>
+               <div class="spinner-3"></div>
+           </div>
+       </div>
      <a href="javascript:;" class="login-link uk-button"><?php echo Yii::t("default","Login")?></a>
      <a href="javascript:;" class="signup-link uk-button" style="margin-right:0px;"><?php echo Yii::t("default","Sign up")?></a>
    </div>

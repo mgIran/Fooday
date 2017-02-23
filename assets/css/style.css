@@ -7626,3 +7626,278 @@ a.strip_list {
     margin: 0;
     text-transform: lowercase;
 }
+#brand-name small{
+    display: block;
+    font-size: 22px;
+    font-family: 'Lora', serif;
+    color: #fff;
+    text-transform: none;
+    margin-top: -3px;
+    direction: ltr;
+}
+.section-grey2{
+    background:#efefef;
+}
+.section-browse .result-merchant .inner,
+.section-browse .result-merchant h2{
+    text-align: center;
+}
+.result-merchant h2{
+    color: #666;
+    font-family: IRANSans;
+    font-size: 18px;
+}
+.section-browse .result-merchant h2{
+    margin: 25px 0 15px;
+}
+.section-browse .result-merchant .mytable{
+    margin-bottom: 15px;
+}
+p.cuisine{
+    margin-bottom: 15px;
+}
+.result-merchant a.orange-button{
+    border-radius: 75px;
+    width: 150px;
+    background: #999;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px;
+    padding: 8px 25px 12px;
+}
+.filter-container{
+    background: #fff;
+    border: 1px solid #c9c7c7;
+    border-radius: 20px 20px 6px 6px;
+    padding: 15px;
+    margin-top: 25px;
+}
+#section-browse .tabs-wrapper{
+    border: none;
+}
+.filter-container li{
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px;
+    margin: 0 -15px;
+}
+.filter-container li:last-child{
+    border-bottom: none;
+}
+.filter-container h5{
+    margin: 0 0 30px;
+    font-weight: bold;
+}
+.filter-container label{
+    font-weight: normal;
+    color: #666;
+    font-size: 13px;
+}
+.parallax-search.parallax-menu{
+    min-height:500px;
+}
+.status-label{
+    color: #fff;
+    font-size: 17px;
+    text-shadow: 0 1px #000;
+}
+.status-label .online,
+.status-label .offline{
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background-color: #21c64f;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 50%;
+    margin: 11px 10px;
+    -webkit-animation: flash 1s linear infinite;
+    -moz-animation: flash 1s linear infinite;
+    -ms-animation: flash 1s linear infinite;
+    -o-animation: flash 1s linear infinite;
+    animation: flash 1s linear infinite;
+}
+.status-label .online::before,
+.status-label .offline::before{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -4px;
+    top: -4px;
+    content: "";
+    background-color: rgba(33,198,79,0.3);
+    border-radius: 50%;
+}
+.status-label .offline{
+    background-color: #f75d34;
+    -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    -o-animation: none;
+    animation: none;
+}
+.status-label .offline::before{
+    background-color: rgba(247, 93, 52, 0.3);
+}
+@keyframes flash{
+    0%,100%{opacity:1}
+    50%{opacity:0}
+}
+@-webkit-keyframes flash{
+    0%,100%{opacity:1}
+    50%{opacity:0}
+}
+@-moz-keyframes flash{
+    0%,100%{opacity:1}
+    50%{opacity:0}
+}
+.order-future{
+    margin-bottom: 8px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 22px;
+    vertical-align: middle;
+    margin: 0 7px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius:11px;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(23px);
+    -ms-transform: translateX(23px);
+    transform: translateX(23px);
+}
+.switch-container{
+    font-size: 12px;
+    margin-bottom: 15px;
+    margin-top: 50px;
+}
+.popover{
+    width: 300px;
+    max-width: 300px;
+}
+.popover-content{
+    font-family: IRANSans;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: justify;
+}
+[data-toggle="popover"]{
+    cursor: pointer;
+}
+#menu-tab-wrapper #tabs li span{
+    font-weight: bold;
+}
+.category a i{
+    left: 10px;
+    right: auto;
+    top: 25%;
+}
+.loading-container .spinners,
+.page-loading .spinners{
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.loading-container .spinners{
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.loading-container .spinner,.loading-container .spinner-2,.loading-container .spinner-3,
+.page-loading .spinner,.page-loading .spinner-2,.page-loading .spinner-3{
+    position: relative;
+    background-color: #555;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 auto;
+    -webkit-animation:1s ease-in-out 0s normal none infinite running sk-scaleout;
+    -o-animation:1s ease-in-out 0s normal none infinite running sk-scaleout;
+    animation:1s ease-in-out 0s normal none infinite running sk-scaleout;
+    border-radius: 100%;
+}
+.loading-container .spinner,.loading-container .spinner-2,.loading-container .spinner-3{
+    margin: 0 1px;
+}
+.loading-container .spinner-2,
+.page-loading .spinner-2{
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    -o-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.loading-container .spinner,
+.page-loading .spinner{
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    -o-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+@keyframes sk-scaleout {
+    0% {
+        background-color: #999;
+        opacity: 1;
+    }
+    100% {
+        opacity: .3;
+    }
+}
+/*****************************************************/
+/*********************** LOADING **********************/
+.loading-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    z-index: 10;
+    background-color: #fff;
+}

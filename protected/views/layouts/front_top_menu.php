@@ -80,18 +80,15 @@
 
         <div class="span-4 left-pane">
             <nav class="menu white-mode" ng-class="{'white-mode': !menuFixed}">
-
-                    <span class="not-link support">
-                        <a href="<?php echo Yii::app()->createUrl("/contact");?>">
-                            <i class="fa fa-lg fa-phone-square"></i>
-                            ۸۶۰۳۶۹۲۴ - ۰۲۱
-
-                        </a>
-                    </span>
+                <span class="not-link support">
+                    <a href="<?php echo Yii::app()->createUrl("/contact");?>"><i class="fa fa-lg fa-phone-square"></i>۴۴۱۷۳۲۴۴ - ۰۲۱</a>
+                </span>
+                <?php if(!Yii::app()->functions->isClientLogin()):?>
                     <span class="not-link">
-                        <i class="fa fa-user"></i><a href="javascript:;" class="top_signup">ورود</a>
+                        <i class="fa fa-user"></i><a href="javascript:;" class="top_signup login">ورود</a>
                     </span>
-                <i class="fa fa-dot-circle-o"></i><a href="javascript:;" class="top_signup">ثبت نام</a>
+                    <i class="fa fa-dot-circle-o"></i><a href="javascript:;" class="top_signup signup">ثبت نام</a>
+                <?php endif;?>
             </nav>
         </div>
     </div>

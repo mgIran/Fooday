@@ -622,12 +622,12 @@ class FunctionsV3
         }
         
         if ($is_merchant_open){
-        	$tag='<span class="label label-success">'.t("Open").'</span>';
+        	$tag='<span class="status-label"><i class="online"></i>'.t("Restaurant accepts order").'</span>';
         } else {
         	if ($merchant_preorder){
-        		$tag='<span class="label label-info">'.t("Pre-Order").'</span>';
+        		$tag='<span class="status-label">'.t("Pre-Order").'</span>';
         	} else {
-        		$tag='<span class="label label-danger">'.t("Closed").'</span>';
+        		$tag='<span class="status-label"><i class="offline"></i>'.t("Off-hours ordering").'</span>';
         	}
         }      
         return $tag;  

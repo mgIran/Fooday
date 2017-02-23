@@ -5,7 +5,7 @@
  <a href="javascript:;" class="category-child relative goto-category" data-id="cat-<?php echo $val['category_id']?>" >
   <?php echo qTranslate($val['category_name'],'category_name',$val)?>
   <span>(<?php echo is_array($val['item'])?count($val['item']):'0';?>)</span>
-  <i class="ion-ios-arrow-right"></i>
+  <i class="ion-ios-arrow-left"></i>
  </a>
 <?php endforeach;?>
 </div>

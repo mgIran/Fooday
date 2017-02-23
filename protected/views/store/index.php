@@ -286,7 +286,7 @@ $home_search_subtext=Yii::t("default","Order Delivery Food Online From Local Res
 }
 
 $home_search_mode=Yii::app()->functions->getOptionAdmin('home_search_mode');
-$placholder_search=Yii::t("default","Street Address,City,State");
+$placholder_search="مثل: سعادت آباد";
 if ( $home_search_mode=="postcode" ){
 $placholder_search=Yii::t("default","Enter your postcode");
 }
